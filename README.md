@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Open IQ Lab
 
-## Getting Started
+Uji penalaran abstrak berbasis matriks. Hasilnya berupa skor **theta** dan **persentil** beserta rentang, bukan angka IQ.
 
-First, run the development server:
+Bahasa Indonesia · Next.js + TypeScript · Lisensi GPL-3.0
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Apa yang belum ada
+
+Project ini masih sangat awal. Yang sudah ada per v0.1.0 baru kerangka: lisensi, dokumen rencana, dan aturan main. Belum ada soal, belum ada mesin skoring, belum ada antarmuka tes. Lihat [PLAN.md](./PLAN.md) untuk peta jalan lengkap per fase.
+
+## Apa yang bukan project ini
+
+Bagian ini sengaja ada di depan supaya tidak disalahpahami.
+
+- **Bukan tes IQ.** Tidak menghasilkan angka IQ. Task rujukan yang dipakai tidak punya norma populasi, jadi konversi ke skala IQ tidak bisa dilakukan dengan jujur.
+- **Bukan alat diagnosis klinis.** Tidak ada klaim medicolegal, tidak ada nilai ambang, tidak untuk keputusan pendidikan atau rekrutmen.
+- **Bukan turunan Raven, WAIS, atau Stanford-Binet.** Matriks 3x3 memang umum dipakai di banyak tes IQ, tapi butir asli tiap instrument itu milik penerbitnya masing-masing dan tidak dipakai di sini.
+- **Bukan pengganti tes psikolog.** Untuk screening akurat atau diagnosis, bawa ke psikolog berlisensi.
+
+## Prinsip skoring
+
+Rantai skoring hanya satu jalur, tanpa cabang:
+
+```
+ jawaban per butir
+        ↓
+   theta (IRT 2PL)
+        ↓
+persentil terhadap sampel acuan
+        ↓
+ rentang + standard error
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Tidak ada langkah konversi ke angka IQ. Koreksi usia hanya sah di rentang usiasampel acuan; di luar itu sistem menyatakan di luar jangkauan data, bukan mengarang angka.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Prinsip metodologi yang diambil dari `Zburgers/OpenIQ`: no fake precision, no silent timing bonus. Waktu respons dicatat sebagai data, tidak dipakai menambah skor diam-diam.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Sumber butir
 
-## Learn More
+Rencana memakai Materials for Adaptive Reasoning Suite — Item Bank (MaRs-IB) dari Chierchia dkk. 2019. Lisensi butir: non-komersial, wajib sitasi. Rinciannya ada di [ITEMS-LICENSE.md](./ITEMS-LICENSE.md).
 
-To learn more about Next.js, take a look at the following resources:
+Status unduhan butir per pemeriksaan terbaru: repositori OSF tidak menyediakan file butir secara publik, baru PDF dokumentasi. Butir stimuli belum bisa dipakai.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Credit
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Repo berikut jadi rujukan **metode dan struktur**, bukan kode yang disalin. Rincian di [NOTICE](./NOTICE).
 
-## Deploy on Vercel
+| Repo | Dipakai untuk |
+|---|---|
+| [ikhlasulov-gb/open-rpm-web](https://github.com/ikhlasulov-gb/open-rpm-web) | Konsep adaptive, pola koreksi usia, reliability check |
+| [Ksound22/iq-measurer](https://github.com/Ksound22/iq-measurer) | Struktur bank soal JSON, layout, timer |
+| [Zburgers/OpenIQ](https://github.com/Zburgers/OpenIQ) | Metodologi IRT, disiplin laporan, prinsip epistemik |
+| [iq-misc/rpm-iq-exam](https://github.com/iq-misc/rpm-iq-exam) | Tidak dipakai |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Mesin skoring di repo ini ditulis dari nol. Tidak ada kode yang di-copy-paste dari repo lain. Kalau nanti ada baris yang diadaptasi, file-nya akan punya header komentar sumber, lisensi, dan commit hash.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Menjalankan
+
+```bash
+npm install
+npm run dev
+```
+
+Buka [http://localhost:3000](http://localhost:3000).
+
+Lain-lain:
+
+```bash
+npm run build   # production build
+npm run lint    # eslint
+```
+
+## Struktur
+
+```
+src/app/          halaman dan layout (App Router)
+src/components/   komponen UI
+docs/sources/     dokumen sumber yang di-vendor sebagai bukti provenance
+PLAN.md           peta jalan + keputusan lisensi
+ITEMS-LICENSE.md  ketentuan lisensi butir
+NOTICE            atribusi
+LICENSE           GPL-3.0
+```
+
+## Lisensi
+
+Kode: GPL-3.0. Butir stimuli: punya lisensi sendiri yang terpisah dan tidak tunduk pada GPL. Baca kedua file sebelum memakai apa pun di sini.
+
+## Sitasi
+
+Chierchia, G., Fuhrmann, D., Knoll, L. J., Pi-Sunyer, B. P., Sakhardande, A. L., & Blakemore, S. J. (2019). MaRs-IB. *Royal Society Open Science*, 6(10), 190232. [https://doi.org/10.1098/rsos.190232](https://doi.org/10.1098/rsos.190232)
