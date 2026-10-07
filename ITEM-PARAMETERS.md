@@ -24,6 +24,7 @@ yang diturunkan dari respons peserta.
 | `maRs-ib-item-params.csv` | Parameter IRT per item | 384 baris data |
 | `maRs-ib-dimensionality.csv` | Skor dimensionality per item (Chierchia et al., 2019) | 80 baris data |
 | `maRs-ib-features.csv` | Spesifikasi struktural tiap butir per fitur dan aturan | 384 baris data |
+| `maRs-ib-distractors.csv` | Jarak tiap pengecoh dari jawaban benar, dalam jumlah aturan | 128 baris data |
 | `maRs-ib-shortform-sf1.csv` | Short form 1, 12 butir | 12 baris data |
 | `maRs-ib-shortform-sf2.csv` | Short form 2, 12 butir | 12 baris data |
 | `maRs-ib-shortform-sf3.csv` | Short form 3, 12 butir | 12 baris data |
@@ -71,8 +72,28 @@ sehingga tidak perlu menebak panjang tes sendiri.
    11 sampai 33, sedangkan parameter IRT Zorowitz et al. (2023) dari sampel yang lebih
    besar. Keduanya boleh dipakai, tapi tidak boleh dianggap satu sampel identik.
 
-## Yang masih tidak ada
+## Menggambar butir dari spesifikasi
 
-Berkas gambar stimulus (jpeg) untuk butir MaRs-IB **tidak** ada di repositori
+Berkas gambar stimulus asli untuk butir MaRs-IB **tidak** ada di repositori
 `ndawlab/mars-irt` dan tidak ada di node OSF `g96f4`. Repositori itu hanya berisi data
-respons dan hasil kalibrasi. Pilihan pengambilan stimulus dibahas di `PLAN.md` bagian 3.
+respons dan hasil kalibrasi.
+
+Sebagai gantinya, butir digambar ulang dari spesifikasinya sendiri memakai
+`py-lib/open_iq_item_gen.py`. Yang perlu diketahui:
+
+- **Bukan stimulus aslinya.** Palet warna, bentuk glyph, dan tingkat ukuran adalah pilihan
+  asli project ini, bukan milik MaRs-IB. Butir hasil render memakai palet Okabe-Ito agar
+  tetap terbaca oleh penyandang gangguan penglihatan warna.
+- **Struktur aturan dan tingkat kesulitannya sama.** Jumlah aturan per butir, atribut mana
+  yang berubah, dan jarak tiap pengecoh diambil apa adanya dari `features.csv` dan
+  `distractors.csv`, jadi tingkat kesulitannya sebanding dengan klon aslinya.
+- **Konvensi arah perubahan.** Sumber hanya menulis kode 1 berarti "berubahacross row or
+  column" tanpa menyebut yang mana. Di sini kelompok f1 dan f3 berjalan mendatar, f2 dan f4
+  vertikal, dan kode 2 berarti berubah pada kedua arah sekaligus. Tanpa pemisahan ini
+  semua matriks akan tampil sebagai tiga baris yang identik.
+- **Parameter IRT dianggap perkiraan.** Parameter butir dihitung pada stimulus aslinya.
+  Karena permukaan visualnya berbeda, angka itu hanya perkiraan kasar untuk butir hasil
+  render. Laporan harus menyebut hal ini.
+
+Pengecoh dibuat dengan mengubah tepat sejumlah atribut pada sel jawaban, sehingga jarak
+dalam jumlah aturan sama dengan yang dideklarasikan sumber.

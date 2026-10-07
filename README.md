@@ -6,7 +6,7 @@ Bahasa Indonesia · Next.js + TypeScript · Lisensi GPL-3.0
 
 ## Apa yang belum ada
 
-Project ini masih sangat awal. Yang sudah ada per v0.1.0 baru kerangka: lisensi, dokumen rencana, dan aturan main. Belum ada gambar stimulus, belum ada mesin skoring, belum ada antarmuka tes. Parameter psychometrik butir sudah tersedia dan bisa dilihat di [ITEM-PARAMETERS.md](./ITEM-PARAMETERS.md). Lihat [PLAN.md](./PLAN.md) untuk peta jalan lengkap per fase.
+Project ini masih sangat awal. Yang sudah ada: lisensi, dokumen rencana, aturan main, parameter psychometrik butir, dan 36 butir matriks yang digambar ulang dari spesifikasi aturan. Belum ada mesin skoring dan belum ada antarmuka tes. Parameter psychometrik butir bisa dilihat di [ITEM-PARAMETERS.md](./ITEM-PARAMETERS.md). Lihat [PLAN.md](./PLAN.md) untuk peta jalan lengkap per fase.
 
 ## Apa yang bukan project ini
 

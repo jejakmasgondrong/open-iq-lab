@@ -1,0 +1,4563 @@
+{
+ "source": "MaRs-IB item specifications via ndawlab/mars-irt (MIT)",
+ "items": [
+  {
+   "id": "sf2-190",
+   "clone": 190,
+   "template": 45,
+   "shapeSet": 1,
+   "distractorType": "pd",
+   "nElements": 3,
+   "nRules": 5,
+   "ruleEntries": [
+    {
+     "group": "f1",
+     "attr": "color",
+     "code": 2
+    },
+    {
+     "group": "f1",
+     "attr": "shape",
+     "code": 1
+    },
+    {
+     "group": "f2",
+     "attr": "color",
+     "code": 1
+    },
+    {
+     "group": "f2",
+     "attr": "pos_col",
+     "code": 2
+    },
+    {
+     "group": "f3",
+     "attr": "color",
+     "code": 1
+    }
+   ],
+   "ruleCodes": {
+    "color": {
+     "code": 2,
+     "group": "f1"
+    },
+    "shape": {
+     "code": 1,
+     "group": "f1"
+    },
+    "pos_tri": {
+     "code": 0,
+     "group": null
+    },
+    "pos_row": {
+     "code": 0,
+     "group": null
+    },
+    "pos_col": {
+     "code": 2,
+     "group": "f2"
+    },
+    "size": {
+     "code": 0,
+     "group": null
+    }
+   },
+   "activeRules": [
+    "color",
+    "shape",
+    "pos_col"
+   ],
+   "params": {
+    "beta": -0.976,
+    "alpha3pl": 1.569,
+    "gamma": 0.25,
+    "alpha2pl": 1.17675
+   },
+   "vocab": {
+    "colors": [
+     "#0072B2",
+     "#E69F00",
+     "#009E73",
+     "#CC79A7"
+    ],
+    "shapes": [
+     "circle",
+     "square",
+     "triangle",
+     "diamond"
+    ],
+    "sizes": [
+     0.62,
+     0.82,
+     1.0
+    ],
+    "slots": [
+     "left",
+     "right",
+     "bottom"
+    ],
+    "nudge": [
+     [
+      0,
+      0
+     ],
+     [
+      -1,
+      0
+     ],
+     [
+      0,
+      1
+     ]
+    ]
+   },
+   "matrix": [
+    [
+     {
+      "color": 1,
+      "shape": 2,
+      "slot": 0,
+      "nudge": 2,
+      "offset": 2,
+      "size": 0
+     },
+     {
+      "color": 3,
+      "shape": 2,
+      "slot": 2,
+      "nudge": 1,
+      "offset": 2,
+      "size": 1
+     },
+     {
+      "color": 1,
+      "shape": 1,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 1,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 2,
+      "shape": 3,
+      "slot": 0,
+      "nudge": 2,
+      "offset": 0,
+      "size": 0
+     },
+     {
+      "color": 0,
+      "shape": 3,
+      "slot": 2,
+      "nudge": 1,
+      "offset": 0,
+      "size": 1
+     },
+     {
+      "color": 2,
+      "shape": 2,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 2,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 3,
+      "shape": 0,
+      "slot": 0,
+      "nudge": 2,
+      "offset": 1,
+      "size": 0
+     },
+     {
+      "color": 1,
+      "shape": 0,
+      "slot": 2,
+      "nudge": 1,
+      "offset": 1,
+      "size": 1
+     },
+     {
+      "color": 3,
+      "shape": 3,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 0,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 2,
+      "shape": 2,
+      "slot": 0,
+      "nudge": 2,
+      "offset": 0,
+      "size": 0
+     },
+     {
+      "color": 0,
+      "shape": 2,
+      "slot": 2,
+      "nudge": 1,
+      "offset": 0,
+      "size": 1
+     },
+     {
+      "color": 2,
+      "shape": 1,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 2,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 3,
+      "shape": 3,
+      "slot": 0,
+      "nudge": 2,
+      "offset": 1,
+      "size": 0
+     },
+     {
+      "color": 1,
+      "shape": 3,
+      "slot": 2,
+      "nudge": 1,
+      "offset": 1,
+      "size": 1
+     },
+     {
+      "color": 3,
+      "shape": 2,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 0,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 0,
+      "shape": 0,
+      "slot": 0,
+      "nudge": 2,
+      "offset": 2,
+      "size": 0
+     },
+     {
+      "color": 2,
+      "shape": 0,
+      "slot": 2,
+      "nudge": 1,
+      "offset": 2,
+      "size": 1
+     },
+     {
+      "color": 0,
+      "shape": 3,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 1,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 3,
+      "shape": 2,
+      "slot": 0,
+      "nudge": 2,
+      "offset": 1,
+      "size": 0
+     },
+     {
+      "color": 1,
+      "shape": 2,
+      "slot": 2,
+      "nudge": 1,
+      "offset": 1,
+      "size": 1
+     },
+     {
+      "color": 3,
+      "shape": 1,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 0,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 0,
+      "shape": 3,
+      "slot": 0,
+      "nudge": 2,
+      "offset": 2,
+      "size": 0
+     },
+     {
+      "color": 2,
+      "shape": 3,
+      "slot": 2,
+      "nudge": 1,
+      "offset": 2,
+      "size": 1
+     },
+     {
+      "color": 0,
+      "shape": 2,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 1,
+      "size": 2
+     }
+    ],
+    null
+   ],
+   "options": [
+    {
+     "cell": [
+      {
+       "color": 1,
+       "shape": 1,
+       "slot": 0,
+       "nudge": 2,
+       "offset": 1,
+       "size": 0
+      },
+      {
+       "color": 3,
+       "shape": 0,
+       "slot": 2,
+       "nudge": 1,
+       "offset": 0,
+       "size": 1
+      },
+      {
+       "color": 1,
+       "shape": 3,
+       "slot": 2,
+       "nudge": 0,
+       "offset": 2,
+       "size": 2
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 2
+    },
+    {
+     "cell": [
+      {
+       "color": 1,
+       "shape": 0,
+       "slot": 0,
+       "nudge": 2,
+       "offset": 0,
+       "size": 0
+      },
+      {
+       "color": 3,
+       "shape": 0,
+       "slot": 2,
+       "nudge": 1,
+       "offset": 0,
+       "size": 1
+      },
+      {
+       "color": 1,
+       "shape": 3,
+       "slot": 2,
+       "nudge": 0,
+       "offset": 2,
+       "size": 2
+      }
+     ],
+     "correct": true,
+     "ruleDistance": 0
+    },
+    {
+     "cell": [
+      {
+       "color": 2,
+       "shape": 1,
+       "slot": 0,
+       "nudge": 2,
+       "offset": 0,
+       "size": 0
+      },
+      {
+       "color": 3,
+       "shape": 0,
+       "slot": 2,
+       "nudge": 1,
+       "offset": 0,
+       "size": 1
+      },
+      {
+       "color": 1,
+       "shape": 3,
+       "slot": 2,
+       "nudge": 0,
+       "offset": 2,
+       "size": 2
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 2
+    },
+    {
+     "cell": [
+      {
+       "color": 2,
+       "shape": 1,
+       "slot": 0,
+       "nudge": 2,
+       "offset": 1,
+       "size": 0
+      },
+      {
+       "color": 3,
+       "shape": 0,
+       "slot": 2,
+       "nudge": 1,
+       "offset": 0,
+       "size": 1
+      },
+      {
+       "color": 1,
+       "shape": 3,
+       "slot": 2,
+       "nudge": 0,
+       "offset": 2,
+       "size": 2
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 3
+    }
+   ]
+  },
+  {
+   "id": "sf2-131",
+   "clone": 131,
+   "template": 30,
+   "shapeSet": 2,
+   "distractorType": "pd",
+   "nElements": 2,
+   "nRules": 6,
+   "ruleEntries": [
+    {
+     "group": "f1",
+     "attr": "color",
+     "code": 2
+    },
+    {
+     "group": "f1",
+     "attr": "shape",
+     "code": 1
+    },
+    {
+     "group": "f1",
+     "attr": "pos_row",
+     "code": 2
+    },
+    {
+     "group": "f2",
+     "attr": "color",
+     "code": 1
+    },
+    {
+     "group": "f2",
+     "attr": "pos_row",
+     "code": 1
+    },
+    {
+     "group": "f2",
+     "attr": "pos_col",
+     "code": 1
+    }
+   ],
+   "ruleCodes": {
+    "color": {
+     "code": 2,
+     "group": "f1"
+    },
+    "shape": {
+     "code": 1,
+     "group": "f1"
+    },
+    "pos_tri": {
+     "code": 0,
+     "group": null
+    },
+    "pos_row": {
+     "code": 2,
+     "group": "f1"
+    },
+    "pos_col": {
+     "code": 1,
+     "group": "f2"
+    },
+    "size": {
+     "code": 0,
+     "group": null
+    }
+   },
+   "activeRules": [
+    "color",
+    "shape",
+    "pos_row",
+    "pos_col"
+   ],
+   "params": {
+    "beta": -0.973,
+    "alpha3pl": 1.656,
+    "gamma": 0.25,
+    "alpha2pl": 1.242
+   },
+   "vocab": {
+    "colors": [
+     "#0072B2",
+     "#E69F00",
+     "#009E73",
+     "#CC79A7"
+    ],
+    "shapes": [
+     "circle",
+     "square",
+     "triangle",
+     "diamond"
+    ],
+    "sizes": [
+     0.62,
+     0.82,
+     1.0
+    ],
+    "slots": [
+     "left",
+     "right",
+     "bottom"
+    ],
+    "nudge": [
+     [
+      0,
+      0
+     ],
+     [
+      -1,
+      0
+     ],
+     [
+      0,
+      1
+     ]
+    ]
+   },
+   "matrix": [
+    [
+     {
+      "color": 1,
+      "shape": 1,
+      "slot": 2,
+      "nudge": 1,
+      "offset": 1,
+      "size": 1
+     },
+     {
+      "color": 3,
+      "shape": 0,
+      "slot": 0,
+      "nudge": 0,
+      "offset": 2,
+      "size": 0
+     }
+    ],
+    [
+     {
+      "color": 2,
+      "shape": 2,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 1,
+      "size": 1
+     },
+     {
+      "color": 0,
+      "shape": 1,
+      "slot": 0,
+      "nudge": 1,
+      "offset": 2,
+      "size": 0
+     }
+    ],
+    [
+     {
+      "color": 3,
+      "shape": 3,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 1,
+      "size": 1
+     },
+     {
+      "color": 1,
+      "shape": 2,
+      "slot": 0,
+      "nudge": 2,
+      "offset": 2,
+      "size": 0
+     }
+    ],
+    [
+     {
+      "color": 2,
+      "shape": 1,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 2,
+      "size": 1
+     },
+     {
+      "color": 0,
+      "shape": 0,
+      "slot": 0,
+      "nudge": 1,
+      "offset": 0,
+      "size": 0
+     }
+    ],
+    [
+     {
+      "color": 3,
+      "shape": 2,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 2,
+      "size": 1
+     },
+     {
+      "color": 1,
+      "shape": 1,
+      "slot": 0,
+      "nudge": 2,
+      "offset": 0,
+      "size": 0
+     }
+    ],
+    [
+     {
+      "color": 0,
+      "shape": 3,
+      "slot": 2,
+      "nudge": 1,
+      "offset": 2,
+      "size": 1
+     },
+     {
+      "color": 2,
+      "shape": 2,
+      "slot": 0,
+      "nudge": 0,
+      "offset": 0,
+      "size": 0
+     }
+    ],
+    [
+     {
+      "color": 3,
+      "shape": 1,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 0,
+      "size": 1
+     },
+     {
+      "color": 1,
+      "shape": 0,
+      "slot": 0,
+      "nudge": 2,
+      "offset": 1,
+      "size": 0
+     }
+    ],
+    [
+     {
+      "color": 0,
+      "shape": 2,
+      "slot": 2,
+      "nudge": 1,
+      "offset": 0,
+      "size": 1
+     },
+     {
+      "color": 2,
+      "shape": 1,
+      "slot": 0,
+      "nudge": 0,
+      "offset": 1,
+      "size": 0
+     }
+    ],
+    null
+   ],
+   "options": [
+    {
+     "cell": [
+      {
+       "color": 2,
+       "shape": 0,
+       "slot": 2,
+       "nudge": 0,
+       "offset": 1,
+       "size": 1
+      },
+      {
+       "color": 3,
+       "shape": 2,
+       "slot": 0,
+       "nudge": 1,
+       "offset": 1,
+       "size": 0
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 4
+    },
+    {
+     "cell": [
+      {
+       "color": 1,
+       "shape": 3,
+       "slot": 2,
+       "nudge": 2,
+       "offset": 0,
+       "size": 1
+      },
+      {
+       "color": 3,
+       "shape": 2,
+       "slot": 0,
+       "nudge": 1,
+       "offset": 1,
+       "size": 0
+      }
+     ],
+     "correct": true,
+     "ruleDistance": 0
+    },
+    {
+     "cell": [
+      {
+       "color": 1,
+       "shape": 0,
+       "slot": 2,
+       "nudge": 0,
+       "offset": 1,
+       "size": 1
+      },
+      {
+       "color": 3,
+       "shape": 2,
+       "slot": 0,
+       "nudge": 1,
+       "offset": 1,
+       "size": 0
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 3
+    },
+    {
+     "cell": [
+      {
+       "color": 2,
+       "shape": 0,
+       "slot": 2,
+       "nudge": 0,
+       "offset": 0,
+       "size": 1
+      },
+      {
+       "color": 3,
+       "shape": 2,
+       "slot": 0,
+       "nudge": 1,
+       "offset": 1,
+       "size": 0
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 3
+    }
+   ]
+  },
+  {
+   "id": "sf2-124",
+   "clone": 124,
+   "template": 29,
+   "shapeSet": 1,
+   "distractorType": "pd",
+   "nElements": 2,
+   "nRules": 6,
+   "ruleEntries": [
+    {
+     "group": "f1",
+     "attr": "color",
+     "code": 2
+    },
+    {
+     "group": "f1",
+     "attr": "shape",
+     "code": 2
+    },
+    {
+     "group": "f1",
+     "attr": "pos_row",
+     "code": 2
+    },
+    {
+     "group": "f2",
+     "attr": "color",
+     "code": 1
+    },
+    {
+     "group": "f2",
+     "attr": "pos_row",
+     "code": 1
+    },
+    {
+     "group": "f2",
+     "attr": "pos_col",
+     "code": 1
+    }
+   ],
+   "ruleCodes": {
+    "color": {
+     "code": 2,
+     "group": "f1"
+    },
+    "shape": {
+     "code": 2,
+     "group": "f1"
+    },
+    "pos_tri": {
+     "code": 0,
+     "group": null
+    },
+    "pos_row": {
+     "code": 2,
+     "group": "f1"
+    },
+    "pos_col": {
+     "code": 1,
+     "group": "f2"
+    },
+    "size": {
+     "code": 0,
+     "group": null
+    }
+   },
+   "activeRules": [
+    "color",
+    "shape",
+    "pos_row",
+    "pos_col"
+   ],
+   "params": {
+    "beta": -0.73,
+    "alpha3pl": 1.652,
+    "gamma": 0.25,
+    "alpha2pl": 1.2389999999999999
+   },
+   "vocab": {
+    "colors": [
+     "#0072B2",
+     "#E69F00",
+     "#009E73",
+     "#CC79A7"
+    ],
+    "shapes": [
+     "circle",
+     "square",
+     "triangle",
+     "diamond"
+    ],
+    "sizes": [
+     0.62,
+     0.82,
+     1.0
+    ],
+    "slots": [
+     "left",
+     "right",
+     "bottom"
+    ],
+    "nudge": [
+     [
+      0,
+      0
+     ],
+     [
+      -1,
+      0
+     ],
+     [
+      0,
+      1
+     ]
+    ]
+   },
+   "matrix": [
+    [
+     {
+      "color": 1,
+      "shape": 0,
+      "slot": 1,
+      "nudge": 0,
+      "offset": 1,
+      "size": 2
+     },
+     {
+      "color": 3,
+      "shape": 0,
+      "slot": 2,
+      "nudge": 1,
+      "offset": 0,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 2,
+      "shape": 1,
+      "slot": 1,
+      "nudge": 1,
+      "offset": 1,
+      "size": 2
+     },
+     {
+      "color": 0,
+      "shape": 1,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 0,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 3,
+      "shape": 2,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 1,
+      "size": 2
+     },
+     {
+      "color": 1,
+      "shape": 2,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 0,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 2,
+      "shape": 1,
+      "slot": 1,
+      "nudge": 1,
+      "offset": 2,
+      "size": 2
+     },
+     {
+      "color": 0,
+      "shape": 1,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 1,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 3,
+      "shape": 2,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 2,
+      "size": 2
+     },
+     {
+      "color": 1,
+      "shape": 2,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 1,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 0,
+      "shape": 3,
+      "slot": 1,
+      "nudge": 0,
+      "offset": 2,
+      "size": 2
+     },
+     {
+      "color": 2,
+      "shape": 3,
+      "slot": 2,
+      "nudge": 1,
+      "offset": 1,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 3,
+      "shape": 2,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 0,
+      "size": 2
+     },
+     {
+      "color": 1,
+      "shape": 2,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 2,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 0,
+      "shape": 3,
+      "slot": 1,
+      "nudge": 0,
+      "offset": 0,
+      "size": 2
+     },
+     {
+      "color": 2,
+      "shape": 3,
+      "slot": 2,
+      "nudge": 1,
+      "offset": 2,
+      "size": 2
+     }
+    ],
+    null
+   ],
+   "options": [
+    {
+     "cell": [
+      {
+       "color": 1,
+       "shape": 0,
+       "slot": 1,
+       "nudge": 1,
+       "offset": 0,
+       "size": 2
+      },
+      {
+       "color": 3,
+       "shape": 0,
+       "slot": 2,
+       "nudge": 2,
+       "offset": 2,
+       "size": 2
+      }
+     ],
+     "correct": true,
+     "ruleDistance": 0
+    },
+    {
+     "cell": [
+      {
+       "color": 2,
+       "shape": 1,
+       "slot": 1,
+       "nudge": 2,
+       "offset": 0,
+       "size": 2
+      },
+      {
+       "color": 3,
+       "shape": 0,
+       "slot": 2,
+       "nudge": 2,
+       "offset": 2,
+       "size": 2
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 3
+    },
+    {
+     "cell": [
+      {
+       "color": 1,
+       "shape": 1,
+       "slot": 1,
+       "nudge": 2,
+       "offset": 1,
+       "size": 2
+      },
+      {
+       "color": 3,
+       "shape": 0,
+       "slot": 2,
+       "nudge": 2,
+       "offset": 2,
+       "size": 2
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 3
+    },
+    {
+     "cell": [
+      {
+       "color": 2,
+       "shape": 1,
+       "slot": 1,
+       "nudge": 2,
+       "offset": 1,
+       "size": 2
+      },
+      {
+       "color": 3,
+       "shape": 0,
+       "slot": 2,
+       "nudge": 2,
+       "offset": 2,
+       "size": 2
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 4
+    }
+   ]
+  },
+  {
+   "id": "sf2-246",
+   "clone": 246,
+   "template": 55,
+   "shapeSet": 3,
+   "distractorType": "pd",
+   "nElements": 2,
+   "nRules": 5,
+   "ruleEntries": [
+    {
+     "group": "f1",
+     "attr": "color",
+     "code": 1
+    },
+    {
+     "group": "f1",
+     "attr": "shape",
+     "code": 1
+    },
+    {
+     "group": "f1",
+     "attr": "pos_row",
+     "code": 2
+    },
+    {
+     "group": "f1",
+     "attr": "pos_col",
+     "code": 1
+    },
+    {
+     "group": "f2",
+     "attr": "pos_row",
+     "code": 2
+    }
+   ],
+   "ruleCodes": {
+    "color": {
+     "code": 1,
+     "group": "f1"
+    },
+    "shape": {
+     "code": 1,
+     "group": "f1"
+    },
+    "pos_tri": {
+     "code": 0,
+     "group": null
+    },
+    "pos_row": {
+     "code": 2,
+     "group": "f2"
+    },
+    "pos_col": {
+     "code": 1,
+     "group": "f1"
+    },
+    "size": {
+     "code": 0,
+     "group": null
+    }
+   },
+   "activeRules": [
+    "color",
+    "shape",
+    "pos_row",
+    "pos_col"
+   ],
+   "params": {
+    "beta": -0.704,
+    "alpha3pl": 1.452,
+    "gamma": 0.25,
+    "alpha2pl": 1.089
+   },
+   "vocab": {
+    "colors": [
+     "#0072B2",
+     "#E69F00",
+     "#009E73",
+     "#CC79A7"
+    ],
+    "shapes": [
+     "circle",
+     "square",
+     "triangle",
+     "diamond"
+    ],
+    "sizes": [
+     0.62,
+     0.82,
+     1.0
+    ],
+    "slots": [
+     "left",
+     "right",
+     "bottom"
+    ],
+    "nudge": [
+     [
+      0,
+      0
+     ],
+     [
+      -1,
+      0
+     ],
+     [
+      0,
+      1
+     ]
+    ]
+   },
+   "matrix": [
+    [
+     {
+      "color": 1,
+      "shape": 3,
+      "slot": 2,
+      "nudge": 1,
+      "offset": 0,
+      "size": 0
+     },
+     {
+      "color": 1,
+      "shape": 3,
+      "slot": 0,
+      "nudge": 2,
+      "offset": 1,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 2,
+      "shape": 0,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 1,
+      "size": 0
+     },
+     {
+      "color": 2,
+      "shape": 0,
+      "slot": 0,
+      "nudge": 0,
+      "offset": 2,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 3,
+      "shape": 1,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 2,
+      "size": 0
+     },
+     {
+      "color": 3,
+      "shape": 1,
+      "slot": 0,
+      "nudge": 1,
+      "offset": 0,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 1,
+      "shape": 3,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 0,
+      "size": 0
+     },
+     {
+      "color": 1,
+      "shape": 3,
+      "slot": 0,
+      "nudge": 0,
+      "offset": 1,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 2,
+      "shape": 0,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 1,
+      "size": 0
+     },
+     {
+      "color": 2,
+      "shape": 0,
+      "slot": 0,
+      "nudge": 1,
+      "offset": 2,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 3,
+      "shape": 1,
+      "slot": 2,
+      "nudge": 1,
+      "offset": 2,
+      "size": 0
+     },
+     {
+      "color": 3,
+      "shape": 1,
+      "slot": 0,
+      "nudge": 2,
+      "offset": 0,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 1,
+      "shape": 3,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 0,
+      "size": 0
+     },
+     {
+      "color": 1,
+      "shape": 3,
+      "slot": 0,
+      "nudge": 1,
+      "offset": 1,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 2,
+      "shape": 0,
+      "slot": 2,
+      "nudge": 1,
+      "offset": 1,
+      "size": 0
+     },
+     {
+      "color": 2,
+      "shape": 0,
+      "slot": 0,
+      "nudge": 2,
+      "offset": 2,
+      "size": 2
+     }
+    ],
+    null
+   ],
+   "options": [
+    {
+     "cell": [
+      {
+       "color": 0,
+       "shape": 1,
+       "slot": 2,
+       "nudge": 0,
+       "offset": 0,
+       "size": 0
+      },
+      {
+       "color": 3,
+       "shape": 1,
+       "slot": 0,
+       "nudge": 0,
+       "offset": 0,
+       "size": 2
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 3
+    },
+    {
+     "cell": [
+      {
+       "color": 0,
+       "shape": 2,
+       "slot": 2,
+       "nudge": 0,
+       "offset": 2,
+       "size": 0
+      },
+      {
+       "color": 3,
+       "shape": 1,
+       "slot": 0,
+       "nudge": 0,
+       "offset": 0,
+       "size": 2
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 3
+    },
+    {
+     "cell": [
+      {
+       "color": 3,
+       "shape": 2,
+       "slot": 2,
+       "nudge": 0,
+       "offset": 0,
+       "size": 0
+      },
+      {
+       "color": 3,
+       "shape": 1,
+       "slot": 0,
+       "nudge": 0,
+       "offset": 0,
+       "size": 2
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 3
+    },
+    {
+     "cell": [
+      {
+       "color": 3,
+       "shape": 1,
+       "slot": 2,
+       "nudge": 2,
+       "offset": 2,
+       "size": 0
+      },
+      {
+       "color": 3,
+       "shape": 1,
+       "slot": 0,
+       "nudge": 0,
+       "offset": 0,
+       "size": 2
+      }
+     ],
+     "correct": true,
+     "ruleDistance": 0
+    }
+   ]
+  },
+  {
+   "id": "sf2-292",
+   "clone": 292,
+   "template": 64,
+   "shapeSet": 1,
+   "distractorType": "pd",
+   "nElements": 3,
+   "nRules": 4,
+   "ruleEntries": [
+    {
+     "group": "f1",
+     "attr": "shape",
+     "code": 2
+    },
+    {
+     "group": "f1",
+     "attr": "pos_row",
+     "code": 2
+    },
+    {
+     "group": "f1",
+     "attr": "pos_col",
+     "code": 1
+    },
+    {
+     "group": "f2",
+     "attr": "pos_row",
+     "code": 2
+    }
+   ],
+   "ruleCodes": {
+    "color": {
+     "code": 0,
+     "group": null
+    },
+    "shape": {
+     "code": 2,
+     "group": "f1"
+    },
+    "pos_tri": {
+     "code": 0,
+     "group": null
+    },
+    "pos_row": {
+     "code": 2,
+     "group": "f2"
+    },
+    "pos_col": {
+     "code": 1,
+     "group": "f1"
+    },
+    "size": {
+     "code": 0,
+     "group": null
+    }
+   },
+   "activeRules": [
+    "shape",
+    "pos_row",
+    "pos_col"
+   ],
+   "params": {
+    "beta": -0.552,
+    "alpha3pl": 1.427,
+    "gamma": 0.25,
+    "alpha2pl": 1.0702500000000001
+   },
+   "vocab": {
+    "colors": [
+     "#0072B2",
+     "#E69F00",
+     "#009E73",
+     "#CC79A7"
+    ],
+    "shapes": [
+     "circle",
+     "square",
+     "triangle",
+     "diamond"
+    ],
+    "sizes": [
+     0.62,
+     0.82,
+     1.0
+    ],
+    "slots": [
+     "left",
+     "right",
+     "bottom"
+    ],
+    "nudge": [
+     [
+      0,
+      0
+     ],
+     [
+      -1,
+      0
+     ],
+     [
+      0,
+      1
+     ]
+    ]
+   },
+   "matrix": [
+    [
+     {
+      "color": 2,
+      "shape": 1,
+      "slot": 1,
+      "nudge": 1,
+      "offset": 2,
+      "size": 2
+     },
+     {
+      "color": 0,
+      "shape": 1,
+      "slot": 0,
+      "nudge": 2,
+      "offset": 0,
+      "size": 2
+     },
+     {
+      "color": 1,
+      "shape": 2,
+      "slot": 1,
+      "nudge": 0,
+      "offset": 1,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 2,
+      "shape": 2,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 0,
+      "size": 2
+     },
+     {
+      "color": 0,
+      "shape": 2,
+      "slot": 0,
+      "nudge": 0,
+      "offset": 1,
+      "size": 2
+     },
+     {
+      "color": 1,
+      "shape": 3,
+      "slot": 1,
+      "nudge": 1,
+      "offset": 2,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 2,
+      "shape": 3,
+      "slot": 1,
+      "nudge": 0,
+      "offset": 1,
+      "size": 2
+     },
+     {
+      "color": 0,
+      "shape": 3,
+      "slot": 0,
+      "nudge": 1,
+      "offset": 2,
+      "size": 2
+     },
+     {
+      "color": 1,
+      "shape": 0,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 0,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 2,
+      "shape": 2,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 2,
+      "size": 2
+     },
+     {
+      "color": 0,
+      "shape": 2,
+      "slot": 0,
+      "nudge": 0,
+      "offset": 0,
+      "size": 2
+     },
+     {
+      "color": 1,
+      "shape": 3,
+      "slot": 1,
+      "nudge": 1,
+      "offset": 1,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 2,
+      "shape": 3,
+      "slot": 1,
+      "nudge": 0,
+      "offset": 0,
+      "size": 2
+     },
+     {
+      "color": 0,
+      "shape": 3,
+      "slot": 0,
+      "nudge": 1,
+      "offset": 1,
+      "size": 2
+     },
+     {
+      "color": 1,
+      "shape": 0,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 2,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 2,
+      "shape": 0,
+      "slot": 1,
+      "nudge": 1,
+      "offset": 1,
+      "size": 2
+     },
+     {
+      "color": 0,
+      "shape": 0,
+      "slot": 0,
+      "nudge": 2,
+      "offset": 2,
+      "size": 2
+     },
+     {
+      "color": 1,
+      "shape": 1,
+      "slot": 1,
+      "nudge": 0,
+      "offset": 0,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 2,
+      "shape": 3,
+      "slot": 1,
+      "nudge": 0,
+      "offset": 2,
+      "size": 2
+     },
+     {
+      "color": 0,
+      "shape": 3,
+      "slot": 0,
+      "nudge": 1,
+      "offset": 0,
+      "size": 2
+     },
+     {
+      "color": 1,
+      "shape": 0,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 1,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 2,
+      "shape": 0,
+      "slot": 1,
+      "nudge": 1,
+      "offset": 0,
+      "size": 2
+     },
+     {
+      "color": 0,
+      "shape": 0,
+      "slot": 0,
+      "nudge": 2,
+      "offset": 1,
+      "size": 2
+     },
+     {
+      "color": 1,
+      "shape": 1,
+      "slot": 1,
+      "nudge": 0,
+      "offset": 2,
+      "size": 2
+     }
+    ],
+    null
+   ],
+   "options": [
+    {
+     "cell": [
+      {
+       "color": 2,
+       "shape": 1,
+       "slot": 1,
+       "nudge": 0,
+       "offset": 2,
+       "size": 2
+      },
+      {
+       "color": 0,
+       "shape": 1,
+       "slot": 0,
+       "nudge": 0,
+       "offset": 2,
+       "size": 2
+      },
+      {
+       "color": 1,
+       "shape": 2,
+       "slot": 1,
+       "nudge": 1,
+       "offset": 0,
+       "size": 2
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 2
+    },
+    {
+     "cell": [
+      {
+       "color": 2,
+       "shape": 2,
+       "slot": 1,
+       "nudge": 2,
+       "offset": 2,
+       "size": 2
+      },
+      {
+       "color": 0,
+       "shape": 1,
+       "slot": 0,
+       "nudge": 0,
+       "offset": 2,
+       "size": 2
+      },
+      {
+       "color": 1,
+       "shape": 2,
+       "slot": 1,
+       "nudge": 1,
+       "offset": 0,
+       "size": 2
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 2
+    },
+    {
+     "cell": [
+      {
+       "color": 2,
+       "shape": 2,
+       "slot": 1,
+       "nudge": 0,
+       "offset": 1,
+       "size": 2
+      },
+      {
+       "color": 0,
+       "shape": 1,
+       "slot": 0,
+       "nudge": 0,
+       "offset": 2,
+       "size": 2
+      },
+      {
+       "color": 1,
+       "shape": 2,
+       "slot": 1,
+       "nudge": 1,
+       "offset": 0,
+       "size": 2
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 2
+    },
+    {
+     "cell": [
+      {
+       "color": 2,
+       "shape": 1,
+       "slot": 1,
+       "nudge": 2,
+       "offset": 1,
+       "size": 2
+      },
+      {
+       "color": 0,
+       "shape": 1,
+       "slot": 0,
+       "nudge": 0,
+       "offset": 2,
+       "size": 2
+      },
+      {
+       "color": 1,
+       "shape": 2,
+       "slot": 1,
+       "nudge": 1,
+       "offset": 0,
+       "size": 2
+      }
+     ],
+     "correct": true,
+     "ruleDistance": 0
+    }
+   ]
+  },
+  {
+   "id": "sf2-148",
+   "clone": 148,
+   "template": 35,
+   "shapeSet": 1,
+   "distractorType": "pd",
+   "nElements": 3,
+   "nRules": 6,
+   "ruleEntries": [
+    {
+     "group": "f1",
+     "attr": "color",
+     "code": 2
+    },
+    {
+     "group": "f1",
+     "attr": "shape",
+     "code": 1
+    },
+    {
+     "group": "f1",
+     "attr": "pos_row",
+     "code": 1
+    },
+    {
+     "group": "f1",
+     "attr": "pos_col",
+     "code": 1
+    },
+    {
+     "group": "f2",
+     "attr": "color",
+     "code": 1
+    },
+    {
+     "group": "f3",
+     "attr": "pos_row",
+     "code": 2
+    }
+   ],
+   "ruleCodes": {
+    "color": {
+     "code": 2,
+     "group": "f1"
+    },
+    "shape": {
+     "code": 1,
+     "group": "f1"
+    },
+    "pos_tri": {
+     "code": 0,
+     "group": null
+    },
+    "pos_row": {
+     "code": 2,
+     "group": "f3"
+    },
+    "pos_col": {
+     "code": 1,
+     "group": "f1"
+    },
+    "size": {
+     "code": 0,
+     "group": null
+    }
+   },
+   "activeRules": [
+    "color",
+    "shape",
+    "pos_row",
+    "pos_col"
+   ],
+   "params": {
+    "beta": -0.196,
+    "alpha3pl": 1.624,
+    "gamma": 0.25,
+    "alpha2pl": 1.218
+   },
+   "vocab": {
+    "colors": [
+     "#0072B2",
+     "#E69F00",
+     "#009E73",
+     "#CC79A7"
+    ],
+    "shapes": [
+     "circle",
+     "square",
+     "triangle",
+     "diamond"
+    ],
+    "sizes": [
+     0.62,
+     0.82,
+     1.0
+    ],
+    "slots": [
+     "left",
+     "right",
+     "bottom"
+    ],
+    "nudge": [
+     [
+      0,
+      0
+     ],
+     [
+      -1,
+      0
+     ],
+     [
+      0,
+      1
+     ]
+    ]
+   },
+   "matrix": [
+    [
+     {
+      "color": 1,
+      "shape": 2,
+      "slot": 1,
+      "nudge": 1,
+      "offset": 0,
+      "size": 1
+     },
+     {
+      "color": 2,
+      "shape": 3,
+      "slot": 0,
+      "nudge": 1,
+      "offset": 1,
+      "size": 1
+     },
+     {
+      "color": 2,
+      "shape": 1,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 0,
+      "size": 1
+     }
+    ],
+    [
+     {
+      "color": 2,
+      "shape": 3,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 1,
+      "size": 1
+     },
+     {
+      "color": 3,
+      "shape": 0,
+      "slot": 0,
+      "nudge": 2,
+      "offset": 2,
+      "size": 1
+     },
+     {
+      "color": 3,
+      "shape": 2,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 1,
+      "size": 1
+     }
+    ],
+    [
+     {
+      "color": 3,
+      "shape": 0,
+      "slot": 1,
+      "nudge": 0,
+      "offset": 2,
+      "size": 1
+     },
+     {
+      "color": 0,
+      "shape": 1,
+      "slot": 0,
+      "nudge": 0,
+      "offset": 0,
+      "size": 1
+     },
+     {
+      "color": 0,
+      "shape": 3,
+      "slot": 2,
+      "nudge": 1,
+      "offset": 2,
+      "size": 1
+     }
+    ],
+    [
+     {
+      "color": 2,
+      "shape": 2,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 0,
+      "size": 1
+     },
+     {
+      "color": 3,
+      "shape": 3,
+      "slot": 0,
+      "nudge": 2,
+      "offset": 1,
+      "size": 1
+     },
+     {
+      "color": 3,
+      "shape": 1,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 0,
+      "size": 1
+     }
+    ],
+    [
+     {
+      "color": 3,
+      "shape": 3,
+      "slot": 1,
+      "nudge": 0,
+      "offset": 1,
+      "size": 1
+     },
+     {
+      "color": 0,
+      "shape": 0,
+      "slot": 0,
+      "nudge": 0,
+      "offset": 2,
+      "size": 1
+     },
+     {
+      "color": 0,
+      "shape": 2,
+      "slot": 2,
+      "nudge": 1,
+      "offset": 1,
+      "size": 1
+     }
+    ],
+    [
+     {
+      "color": 0,
+      "shape": 0,
+      "slot": 1,
+      "nudge": 1,
+      "offset": 2,
+      "size": 1
+     },
+     {
+      "color": 1,
+      "shape": 1,
+      "slot": 0,
+      "nudge": 1,
+      "offset": 0,
+      "size": 1
+     },
+     {
+      "color": 1,
+      "shape": 3,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 2,
+      "size": 1
+     }
+    ],
+    [
+     {
+      "color": 3,
+      "shape": 2,
+      "slot": 1,
+      "nudge": 0,
+      "offset": 0,
+      "size": 1
+     },
+     {
+      "color": 0,
+      "shape": 3,
+      "slot": 0,
+      "nudge": 0,
+      "offset": 1,
+      "size": 1
+     },
+     {
+      "color": 0,
+      "shape": 1,
+      "slot": 2,
+      "nudge": 1,
+      "offset": 0,
+      "size": 1
+     }
+    ],
+    [
+     {
+      "color": 0,
+      "shape": 3,
+      "slot": 1,
+      "nudge": 1,
+      "offset": 1,
+      "size": 1
+     },
+     {
+      "color": 1,
+      "shape": 0,
+      "slot": 0,
+      "nudge": 1,
+      "offset": 2,
+      "size": 1
+     },
+     {
+      "color": 1,
+      "shape": 2,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 1,
+      "size": 1
+     }
+    ],
+    null
+   ],
+   "options": [
+    {
+     "cell": [
+      {
+       "color": 2,
+       "shape": 1,
+       "slot": 1,
+       "nudge": 0,
+       "offset": 0,
+       "size": 1
+      },
+      {
+       "color": 2,
+       "shape": 1,
+       "slot": 0,
+       "nudge": 2,
+       "offset": 0,
+       "size": 1
+      },
+      {
+       "color": 2,
+       "shape": 3,
+       "slot": 2,
+       "nudge": 0,
+       "offset": 2,
+       "size": 1
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 4
+    },
+    {
+     "cell": [
+      {
+       "color": 1,
+       "shape": 0,
+       "slot": 1,
+       "nudge": 2,
+       "offset": 2,
+       "size": 1
+      },
+      {
+       "color": 2,
+       "shape": 1,
+       "slot": 0,
+       "nudge": 2,
+       "offset": 0,
+       "size": 1
+      },
+      {
+       "color": 2,
+       "shape": 3,
+       "slot": 2,
+       "nudge": 0,
+       "offset": 2,
+       "size": 1
+      }
+     ],
+     "correct": true,
+     "ruleDistance": 0
+    },
+    {
+     "cell": [
+      {
+       "color": 2,
+       "shape": 1,
+       "slot": 1,
+       "nudge": 0,
+       "offset": 2,
+       "size": 1
+      },
+      {
+       "color": 2,
+       "shape": 1,
+       "slot": 0,
+       "nudge": 2,
+       "offset": 0,
+       "size": 1
+      },
+      {
+       "color": 2,
+       "shape": 3,
+       "slot": 2,
+       "nudge": 0,
+       "offset": 2,
+       "size": 1
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 3
+    },
+    {
+     "cell": [
+      {
+       "color": 1,
+       "shape": 1,
+       "slot": 1,
+       "nudge": 0,
+       "offset": 0,
+       "size": 1
+      },
+      {
+       "color": 2,
+       "shape": 1,
+       "slot": 0,
+       "nudge": 2,
+       "offset": 0,
+       "size": 1
+      },
+      {
+       "color": 2,
+       "shape": 3,
+       "slot": 2,
+       "nudge": 0,
+       "offset": 2,
+       "size": 1
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 3
+    }
+   ]
+  },
+  {
+   "id": "sf2-94",
+   "clone": 94,
+   "template": 24,
+   "shapeSet": 1,
+   "distractorType": "pd",
+   "nElements": 3,
+   "nRules": 5,
+   "ruleEntries": [
+    {
+     "group": "f1",
+     "attr": "shape",
+     "code": 2
+    },
+    {
+     "group": "f2",
+     "attr": "pos_row",
+     "code": 2
+    },
+    {
+     "group": "f2",
+     "attr": "pos_col",
+     "code": 2
+    },
+    {
+     "group": "f3",
+     "attr": "shape",
+     "code": 1
+    },
+    {
+     "group": "f3",
+     "attr": "pos_col",
+     "code": 1
+    }
+   ],
+   "ruleCodes": {
+    "color": {
+     "code": 0,
+     "group": null
+    },
+    "shape": {
+     "code": 2,
+     "group": "f1"
+    },
+    "pos_tri": {
+     "code": 0,
+     "group": null
+    },
+    "pos_row": {
+     "code": 2,
+     "group": "f2"
+    },
+    "pos_col": {
+     "code": 2,
+     "group": "f2"
+    },
+    "size": {
+     "code": 0,
+     "group": null
+    }
+   },
+   "activeRules": [
+    "shape",
+    "pos_row",
+    "pos_col"
+   ],
+   "params": {
+    "beta": -0.055,
+    "alpha3pl": 1.533,
+    "gamma": 0.25,
+    "alpha2pl": 1.14975
+   },
+   "vocab": {
+    "colors": [
+     "#0072B2",
+     "#E69F00",
+     "#009E73",
+     "#CC79A7"
+    ],
+    "shapes": [
+     "circle",
+     "square",
+     "triangle",
+     "diamond"
+    ],
+    "sizes": [
+     0.62,
+     0.82,
+     1.0
+    ],
+    "slots": [
+     "left",
+     "right",
+     "bottom"
+    ],
+    "nudge": [
+     [
+      0,
+      0
+     ],
+     [
+      -1,
+      0
+     ],
+     [
+      0,
+      1
+     ]
+    ]
+   },
+   "matrix": [
+    [
+     {
+      "color": 2,
+      "shape": 0,
+      "slot": 1,
+      "nudge": 0,
+      "offset": 1,
+      "size": 2
+     },
+     {
+      "color": 3,
+      "shape": 3,
+      "slot": 2,
+      "nudge": 1,
+      "offset": 1,
+      "size": 0
+     },
+     {
+      "color": 0,
+      "shape": 1,
+      "slot": 2,
+      "nudge": 1,
+      "offset": 1,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 2,
+      "shape": 1,
+      "slot": 1,
+      "nudge": 1,
+      "offset": 2,
+      "size": 2
+     },
+     {
+      "color": 3,
+      "shape": 0,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 2,
+      "size": 0
+     },
+     {
+      "color": 0,
+      "shape": 2,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 2,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 2,
+      "shape": 2,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 0,
+      "size": 2
+     },
+     {
+      "color": 3,
+      "shape": 1,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 0,
+      "size": 0
+     },
+     {
+      "color": 0,
+      "shape": 3,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 0,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 2,
+      "shape": 1,
+      "slot": 1,
+      "nudge": 1,
+      "offset": 2,
+      "size": 2
+     },
+     {
+      "color": 3,
+      "shape": 0,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 2,
+      "size": 0
+     },
+     {
+      "color": 0,
+      "shape": 2,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 2,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 2,
+      "shape": 2,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 0,
+      "size": 2
+     },
+     {
+      "color": 3,
+      "shape": 1,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 0,
+      "size": 0
+     },
+     {
+      "color": 0,
+      "shape": 3,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 0,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 2,
+      "shape": 3,
+      "slot": 1,
+      "nudge": 0,
+      "offset": 1,
+      "size": 2
+     },
+     {
+      "color": 3,
+      "shape": 2,
+      "slot": 2,
+      "nudge": 1,
+      "offset": 1,
+      "size": 0
+     },
+     {
+      "color": 0,
+      "shape": 0,
+      "slot": 2,
+      "nudge": 1,
+      "offset": 1,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 2,
+      "shape": 2,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 0,
+      "size": 2
+     },
+     {
+      "color": 3,
+      "shape": 1,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 0,
+      "size": 0
+     },
+     {
+      "color": 0,
+      "shape": 3,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 0,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 2,
+      "shape": 3,
+      "slot": 1,
+      "nudge": 0,
+      "offset": 1,
+      "size": 2
+     },
+     {
+      "color": 3,
+      "shape": 2,
+      "slot": 2,
+      "nudge": 1,
+      "offset": 1,
+      "size": 0
+     },
+     {
+      "color": 0,
+      "shape": 0,
+      "slot": 2,
+      "nudge": 1,
+      "offset": 1,
+      "size": 2
+     }
+    ],
+    null
+   ],
+   "options": [
+    {
+     "cell": [
+      {
+       "color": 2,
+       "shape": 1,
+       "slot": 1,
+       "nudge": 2,
+       "offset": 0,
+       "size": 2
+      },
+      {
+       "color": 3,
+       "shape": 3,
+       "slot": 2,
+       "nudge": 2,
+       "offset": 2,
+       "size": 0
+      },
+      {
+       "color": 0,
+       "shape": 1,
+       "slot": 2,
+       "nudge": 2,
+       "offset": 2,
+       "size": 2
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 3
+    },
+    {
+     "cell": [
+      {
+       "color": 2,
+       "shape": 1,
+       "slot": 1,
+       "nudge": 2,
+       "offset": 2,
+       "size": 2
+      },
+      {
+       "color": 3,
+       "shape": 3,
+       "slot": 2,
+       "nudge": 2,
+       "offset": 2,
+       "size": 0
+      },
+      {
+       "color": 0,
+       "shape": 1,
+       "slot": 2,
+       "nudge": 2,
+       "offset": 2,
+       "size": 2
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 2
+    },
+    {
+     "cell": [
+      {
+       "color": 2,
+       "shape": 0,
+       "slot": 1,
+       "nudge": 2,
+       "offset": 0,
+       "size": 2
+      },
+      {
+       "color": 3,
+       "shape": 3,
+       "slot": 2,
+       "nudge": 2,
+       "offset": 2,
+       "size": 0
+      },
+      {
+       "color": 0,
+       "shape": 1,
+       "slot": 2,
+       "nudge": 2,
+       "offset": 2,
+       "size": 2
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 2
+    },
+    {
+     "cell": [
+      {
+       "color": 2,
+       "shape": 0,
+       "slot": 1,
+       "nudge": 1,
+       "offset": 2,
+       "size": 2
+      },
+      {
+       "color": 3,
+       "shape": 3,
+       "slot": 2,
+       "nudge": 2,
+       "offset": 2,
+       "size": 0
+      },
+      {
+       "color": 0,
+       "shape": 1,
+       "slot": 2,
+       "nudge": 2,
+       "offset": 2,
+       "size": 2
+      }
+     ],
+     "correct": true,
+     "ruleDistance": 0
+    }
+   ]
+  },
+  {
+   "id": "sf2-54",
+   "clone": 54,
+   "template": 17,
+   "shapeSet": 3,
+   "distractorType": "pd",
+   "nElements": 2,
+   "nRules": 4,
+   "ruleEntries": [
+    {
+     "group": "f1",
+     "attr": "color",
+     "code": 2
+    },
+    {
+     "group": "f1",
+     "attr": "shape",
+     "code": 1
+    },
+    {
+     "group": "f2",
+     "attr": "color",
+     "code": 2
+    },
+    {
+     "group": "f2",
+     "attr": "shape",
+     "code": 1
+    }
+   ],
+   "ruleCodes": {
+    "color": {
+     "code": 2,
+     "group": "f2"
+    },
+    "shape": {
+     "code": 1,
+     "group": "f2"
+    },
+    "pos_tri": {
+     "code": 0,
+     "group": null
+    },
+    "pos_row": {
+     "code": 0,
+     "group": null
+    },
+    "pos_col": {
+     "code": 0,
+     "group": null
+    },
+    "size": {
+     "code": 0,
+     "group": null
+    }
+   },
+   "activeRules": [
+    "color",
+    "shape"
+   ],
+   "params": {
+    "beta": 0.277,
+    "alpha3pl": 1.443,
+    "gamma": 0.25,
+    "alpha2pl": 1.0822500000000002
+   },
+   "vocab": {
+    "colors": [
+     "#0072B2",
+     "#E69F00",
+     "#009E73",
+     "#CC79A7"
+    ],
+    "shapes": [
+     "circle",
+     "square",
+     "triangle",
+     "diamond"
+    ],
+    "sizes": [
+     0.62,
+     0.82,
+     1.0
+    ],
+    "slots": [
+     "left",
+     "right",
+     "bottom"
+    ],
+    "nudge": [
+     [
+      0,
+      0
+     ],
+     [
+      -1,
+      0
+     ],
+     [
+      0,
+      1
+     ]
+    ]
+   },
+   "matrix": [
+    [
+     {
+      "color": 3,
+      "shape": 0,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 1,
+      "size": 2
+     },
+     {
+      "color": 1,
+      "shape": 3,
+      "slot": 1,
+      "nudge": 0,
+      "offset": 1,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 0,
+      "shape": 0,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 1,
+      "size": 2
+     },
+     {
+      "color": 2,
+      "shape": 3,
+      "slot": 1,
+      "nudge": 0,
+      "offset": 1,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 1,
+      "shape": 0,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 1,
+      "size": 2
+     },
+     {
+      "color": 3,
+      "shape": 3,
+      "slot": 1,
+      "nudge": 0,
+      "offset": 1,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 0,
+      "shape": 1,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 1,
+      "size": 2
+     },
+     {
+      "color": 2,
+      "shape": 0,
+      "slot": 1,
+      "nudge": 0,
+      "offset": 1,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 1,
+      "shape": 1,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 1,
+      "size": 2
+     },
+     {
+      "color": 3,
+      "shape": 0,
+      "slot": 1,
+      "nudge": 0,
+      "offset": 1,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 2,
+      "shape": 1,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 1,
+      "size": 2
+     },
+     {
+      "color": 0,
+      "shape": 0,
+      "slot": 1,
+      "nudge": 0,
+      "offset": 1,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 1,
+      "shape": 2,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 1,
+      "size": 2
+     },
+     {
+      "color": 3,
+      "shape": 1,
+      "slot": 1,
+      "nudge": 0,
+      "offset": 1,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 2,
+      "shape": 2,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 1,
+      "size": 2
+     },
+     {
+      "color": 0,
+      "shape": 1,
+      "slot": 1,
+      "nudge": 0,
+      "offset": 1,
+      "size": 2
+     }
+    ],
+    null
+   ],
+   "options": [
+    {
+     "cell": [
+      {
+       "color": 0,
+       "shape": 3,
+       "slot": 2,
+       "nudge": 2,
+       "offset": 1,
+       "size": 2
+      },
+      {
+       "color": 1,
+       "shape": 1,
+       "slot": 1,
+       "nudge": 0,
+       "offset": 1,
+       "size": 2
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 2
+    },
+    {
+     "cell": [
+      {
+       "color": 0,
+       "shape": 2,
+       "slot": 2,
+       "nudge": 2,
+       "offset": 1,
+       "size": 2
+      },
+      {
+       "color": 1,
+       "shape": 1,
+       "slot": 1,
+       "nudge": 0,
+       "offset": 1,
+       "size": 2
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 1
+    },
+    {
+     "cell": [
+      {
+       "color": 3,
+       "shape": 2,
+       "slot": 2,
+       "nudge": 2,
+       "offset": 1,
+       "size": 2
+      },
+      {
+       "color": 1,
+       "shape": 1,
+       "slot": 1,
+       "nudge": 0,
+       "offset": 1,
+       "size": 2
+      }
+     ],
+     "correct": true,
+     "ruleDistance": 0
+    },
+    {
+     "cell": [
+      {
+       "color": 3,
+       "shape": 3,
+       "slot": 2,
+       "nudge": 2,
+       "offset": 1,
+       "size": 2
+      },
+      {
+       "color": 1,
+       "shape": 1,
+       "slot": 1,
+       "nudge": 0,
+       "offset": 1,
+       "size": 2
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 1
+    }
+   ]
+  },
+  {
+   "id": "sf2-255",
+   "clone": 255,
+   "template": 58,
+   "shapeSet": 3,
+   "distractorType": "md",
+   "nElements": 1,
+   "nRules": 3,
+   "ruleEntries": [
+    {
+     "group": "f1",
+     "attr": "color",
+     "code": 2
+    },
+    {
+     "group": "f1",
+     "attr": "shape",
+     "code": 2
+    },
+    {
+     "group": "f1",
+     "attr": "pos_tri",
+     "code": 2
+    }
+   ],
+   "ruleCodes": {
+    "color": {
+     "code": 2,
+     "group": "f1"
+    },
+    "shape": {
+     "code": 2,
+     "group": "f1"
+    },
+    "pos_tri": {
+     "code": 2,
+     "group": "f1"
+    },
+    "pos_row": {
+     "code": 0,
+     "group": null
+    },
+    "pos_col": {
+     "code": 0,
+     "group": null
+    },
+    "size": {
+     "code": 0,
+     "group": null
+    }
+   },
+   "activeRules": [
+    "color",
+    "shape",
+    "pos_tri"
+   ],
+   "params": {
+    "beta": 0.291,
+    "alpha3pl": 1.385,
+    "gamma": 0.25,
+    "alpha2pl": 1.03875
+   },
+   "vocab": {
+    "colors": [
+     "#0072B2",
+     "#E69F00",
+     "#009E73",
+     "#CC79A7"
+    ],
+    "shapes": [
+     "circle",
+     "square",
+     "triangle",
+     "diamond"
+    ],
+    "sizes": [
+     0.62,
+     0.82,
+     1.0
+    ],
+    "slots": [
+     "left",
+     "right",
+     "bottom"
+    ],
+    "nudge": [
+     [
+      0,
+      0
+     ],
+     [
+      -1,
+      0
+     ],
+     [
+      0,
+      1
+     ]
+    ]
+   },
+   "matrix": [
+    [
+     {
+      "color": 2,
+      "shape": 3,
+      "slot": 2,
+      "nudge": 1,
+      "offset": 2,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 3,
+      "shape": 0,
+      "slot": 0,
+      "nudge": 1,
+      "offset": 2,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 0,
+      "shape": 1,
+      "slot": 1,
+      "nudge": 1,
+      "offset": 2,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 3,
+      "shape": 0,
+      "slot": 0,
+      "nudge": 1,
+      "offset": 2,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 0,
+      "shape": 1,
+      "slot": 1,
+      "nudge": 1,
+      "offset": 2,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 1,
+      "shape": 2,
+      "slot": 2,
+      "nudge": 1,
+      "offset": 2,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 0,
+      "shape": 1,
+      "slot": 1,
+      "nudge": 1,
+      "offset": 2,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 1,
+      "shape": 2,
+      "slot": 2,
+      "nudge": 1,
+      "offset": 2,
+      "size": 2
+     }
+    ],
+    null
+   ],
+   "options": [
+    {
+     "cell": [
+      {
+       "color": 3,
+       "shape": 3,
+       "slot": 0,
+       "nudge": 1,
+       "offset": 2,
+       "size": 2
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 1
+    },
+    {
+     "cell": [
+      {
+       "color": 2,
+       "shape": 3,
+       "slot": 0,
+       "nudge": 1,
+       "offset": 2,
+       "size": 2
+      }
+     ],
+     "correct": true,
+     "ruleDistance": 0
+    },
+    {
+     "cell": [
+      {
+       "color": 2,
+       "shape": 3,
+       "slot": 1,
+       "nudge": 1,
+       "offset": 2,
+       "size": 2
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 1
+    },
+    {
+     "cell": [
+      {
+       "color": 2,
+       "shape": 0,
+       "slot": 0,
+       "nudge": 1,
+       "offset": 2,
+       "size": 2
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 1
+    }
+   ]
+  },
+  {
+   "id": "sf2-358",
+   "clone": 358,
+   "template": 76,
+   "shapeSet": 1,
+   "distractorType": "pd",
+   "nElements": 2,
+   "nRules": 5,
+   "ruleEntries": [
+    {
+     "group": "f1",
+     "attr": "color",
+     "code": 2
+    },
+    {
+     "group": "f1",
+     "attr": "shape",
+     "code": 1
+    },
+    {
+     "group": "f2",
+     "attr": "color",
+     "code": 1
+    },
+    {
+     "group": "f2",
+     "attr": "shape",
+     "code": 1
+    },
+    {
+     "group": "f2",
+     "attr": "pos_tri",
+     "code": 2
+    }
+   ],
+   "ruleCodes": {
+    "color": {
+     "code": 2,
+     "group": "f1"
+    },
+    "shape": {
+     "code": 1,
+     "group": "f2"
+    },
+    "pos_tri": {
+     "code": 2,
+     "group": "f2"
+    },
+    "pos_row": {
+     "code": 0,
+     "group": null
+    },
+    "pos_col": {
+     "code": 0,
+     "group": null
+    },
+    "size": {
+     "code": 0,
+     "group": null
+    }
+   },
+   "activeRules": [
+    "color",
+    "shape",
+    "pos_tri"
+   ],
+   "params": {
+    "beta": 0.664,
+    "alpha3pl": 1.521,
+    "gamma": 0.25,
+    "alpha2pl": 1.14075
+   },
+   "vocab": {
+    "colors": [
+     "#0072B2",
+     "#E69F00",
+     "#009E73",
+     "#CC79A7"
+    ],
+    "shapes": [
+     "circle",
+     "square",
+     "triangle",
+     "diamond"
+    ],
+    "sizes": [
+     0.62,
+     0.82,
+     1.0
+    ],
+    "slots": [
+     "left",
+     "right",
+     "bottom"
+    ],
+    "nudge": [
+     [
+      0,
+      0
+     ],
+     [
+      -1,
+      0
+     ],
+     [
+      0,
+      1
+     ]
+    ]
+   },
+   "matrix": [
+    [
+     {
+      "color": 2,
+      "shape": 2,
+      "slot": 0,
+      "nudge": 2,
+      "offset": 0,
+      "size": 2
+     },
+     {
+      "color": 0,
+      "shape": 3,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 2,
+      "size": 1
+     }
+    ],
+    [
+     {
+      "color": 3,
+      "shape": 2,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 0,
+      "size": 2
+     },
+     {
+      "color": 1,
+      "shape": 3,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 2,
+      "size": 1
+     }
+    ],
+    [
+     {
+      "color": 0,
+      "shape": 2,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 0,
+      "size": 2
+     },
+     {
+      "color": 2,
+      "shape": 3,
+      "slot": 0,
+      "nudge": 2,
+      "offset": 2,
+      "size": 1
+     }
+    ],
+    [
+     {
+      "color": 3,
+      "shape": 3,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 0,
+      "size": 2
+     },
+     {
+      "color": 1,
+      "shape": 0,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 2,
+      "size": 1
+     }
+    ],
+    [
+     {
+      "color": 0,
+      "shape": 3,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 0,
+      "size": 2
+     },
+     {
+      "color": 2,
+      "shape": 0,
+      "slot": 0,
+      "nudge": 2,
+      "offset": 2,
+      "size": 1
+     }
+    ],
+    [
+     {
+      "color": 1,
+      "shape": 3,
+      "slot": 0,
+      "nudge": 2,
+      "offset": 0,
+      "size": 2
+     },
+     {
+      "color": 3,
+      "shape": 0,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 2,
+      "size": 1
+     }
+    ],
+    [
+     {
+      "color": 0,
+      "shape": 0,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 0,
+      "size": 2
+     },
+     {
+      "color": 2,
+      "shape": 1,
+      "slot": 0,
+      "nudge": 2,
+      "offset": 2,
+      "size": 1
+     }
+    ],
+    [
+     {
+      "color": 1,
+      "shape": 0,
+      "slot": 0,
+      "nudge": 2,
+      "offset": 0,
+      "size": 2
+     },
+     {
+      "color": 3,
+      "shape": 1,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 2,
+      "size": 1
+     }
+    ],
+    null
+   ],
+   "options": [
+    {
+     "cell": [
+      {
+       "color": 3,
+       "shape": 1,
+       "slot": 2,
+       "nudge": 2,
+       "offset": 0,
+       "size": 2
+      },
+      {
+       "color": 0,
+       "shape": 1,
+       "slot": 2,
+       "nudge": 2,
+       "offset": 2,
+       "size": 1
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 3
+    },
+    {
+     "cell": [
+      {
+       "color": 3,
+       "shape": 1,
+       "slot": 1,
+       "nudge": 2,
+       "offset": 0,
+       "size": 2
+      },
+      {
+       "color": 0,
+       "shape": 1,
+       "slot": 2,
+       "nudge": 2,
+       "offset": 2,
+       "size": 1
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 2
+    },
+    {
+     "cell": [
+      {
+       "color": 2,
+       "shape": 1,
+       "slot": 2,
+       "nudge": 2,
+       "offset": 0,
+       "size": 2
+      },
+      {
+       "color": 0,
+       "shape": 1,
+       "slot": 2,
+       "nudge": 2,
+       "offset": 2,
+       "size": 1
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 2
+    },
+    {
+     "cell": [
+      {
+       "color": 2,
+       "shape": 0,
+       "slot": 1,
+       "nudge": 2,
+       "offset": 0,
+       "size": 2
+      },
+      {
+       "color": 0,
+       "shape": 1,
+       "slot": 2,
+       "nudge": 2,
+       "offset": 2,
+       "size": 1
+      }
+     ],
+     "correct": true,
+     "ruleDistance": 0
+    }
+   ]
+  },
+  {
+   "id": "sf2-336",
+   "clone": 336,
+   "template": 72,
+   "shapeSet": 3,
+   "distractorType": "pd",
+   "nElements": 2,
+   "nRules": 4,
+   "ruleEntries": [
+    {
+     "group": "f1",
+     "attr": "color",
+     "code": 2
+    },
+    {
+     "group": "f1",
+     "attr": "shape",
+     "code": 2
+    },
+    {
+     "group": "f2",
+     "attr": "color",
+     "code": 1
+    },
+    {
+     "group": "f2",
+     "attr": "shape",
+     "code": 1
+    }
+   ],
+   "ruleCodes": {
+    "color": {
+     "code": 2,
+     "group": "f1"
+    },
+    "shape": {
+     "code": 2,
+     "group": "f1"
+    },
+    "pos_tri": {
+     "code": 0,
+     "group": null
+    },
+    "pos_row": {
+     "code": 0,
+     "group": null
+    },
+    "pos_col": {
+     "code": 0,
+     "group": null
+    },
+    "size": {
+     "code": 0,
+     "group": null
+    }
+   },
+   "activeRules": [
+    "color",
+    "shape"
+   ],
+   "params": {
+    "beta": 0.774,
+    "alpha3pl": 1.414,
+    "gamma": 0.25,
+    "alpha2pl": 1.0605
+   },
+   "vocab": {
+    "colors": [
+     "#0072B2",
+     "#E69F00",
+     "#009E73",
+     "#CC79A7"
+    ],
+    "shapes": [
+     "circle",
+     "square",
+     "triangle",
+     "diamond"
+    ],
+    "sizes": [
+     0.62,
+     0.82,
+     1.0
+    ],
+    "slots": [
+     "left",
+     "right",
+     "bottom"
+    ],
+    "nudge": [
+     [
+      0,
+      0
+     ],
+     [
+      -1,
+      0
+     ],
+     [
+      0,
+      1
+     ]
+    ]
+   },
+   "matrix": [
+    [
+     {
+      "color": 2,
+      "shape": 3,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 1,
+      "size": 0
+     },
+     {
+      "color": 0,
+      "shape": 1,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 1,
+      "size": 0
+     }
+    ],
+    [
+     {
+      "color": 3,
+      "shape": 0,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 1,
+      "size": 0
+     },
+     {
+      "color": 1,
+      "shape": 2,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 1,
+      "size": 0
+     }
+    ],
+    [
+     {
+      "color": 0,
+      "shape": 1,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 1,
+      "size": 0
+     },
+     {
+      "color": 2,
+      "shape": 3,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 1,
+      "size": 0
+     }
+    ],
+    [
+     {
+      "color": 3,
+      "shape": 0,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 1,
+      "size": 0
+     },
+     {
+      "color": 1,
+      "shape": 2,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 1,
+      "size": 0
+     }
+    ],
+    [
+     {
+      "color": 0,
+      "shape": 1,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 1,
+      "size": 0
+     },
+     {
+      "color": 2,
+      "shape": 3,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 1,
+      "size": 0
+     }
+    ],
+    [
+     {
+      "color": 1,
+      "shape": 2,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 1,
+      "size": 0
+     },
+     {
+      "color": 3,
+      "shape": 0,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 1,
+      "size": 0
+     }
+    ],
+    [
+     {
+      "color": 0,
+      "shape": 1,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 1,
+      "size": 0
+     },
+     {
+      "color": 2,
+      "shape": 3,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 1,
+      "size": 0
+     }
+    ],
+    [
+     {
+      "color": 1,
+      "shape": 2,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 1,
+      "size": 0
+     },
+     {
+      "color": 3,
+      "shape": 0,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 1,
+      "size": 0
+     }
+    ],
+    null
+   ],
+   "options": [
+    {
+     "cell": [
+      {
+       "color": 2,
+       "shape": 3,
+       "slot": 1,
+       "nudge": 2,
+       "offset": 1,
+       "size": 0
+      },
+      {
+       "color": 0,
+       "shape": 1,
+       "slot": 2,
+       "nudge": 0,
+       "offset": 1,
+       "size": 0
+      }
+     ],
+     "correct": true,
+     "ruleDistance": 0
+    },
+    {
+     "cell": [
+      {
+       "color": 3,
+       "shape": 0,
+       "slot": 1,
+       "nudge": 2,
+       "offset": 1,
+       "size": 0
+      },
+      {
+       "color": 0,
+       "shape": 1,
+       "slot": 2,
+       "nudge": 0,
+       "offset": 1,
+       "size": 0
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 2
+    },
+    {
+     "cell": [
+      {
+       "color": 3,
+       "shape": 3,
+       "slot": 1,
+       "nudge": 2,
+       "offset": 1,
+       "size": 0
+      },
+      {
+       "color": 0,
+       "shape": 1,
+       "slot": 2,
+       "nudge": 0,
+       "offset": 1,
+       "size": 0
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 1
+    },
+    {
+     "cell": [
+      {
+       "color": 2,
+       "shape": 0,
+       "slot": 1,
+       "nudge": 2,
+       "offset": 1,
+       "size": 0
+      },
+      {
+       "color": 0,
+       "shape": 1,
+       "slot": 2,
+       "nudge": 0,
+       "offset": 1,
+       "size": 0
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 1
+    }
+   ]
+  },
+  {
+   "id": "sf2-305",
+   "clone": 305,
+   "template": 66,
+   "shapeSet": 2,
+   "distractorType": "pd",
+   "nElements": 3,
+   "nRules": 6,
+   "ruleEntries": [
+    {
+     "group": "f1",
+     "attr": "shape",
+     "code": 2
+    },
+    {
+     "group": "f1",
+     "attr": "pos_col",
+     "code": 1
+    },
+    {
+     "group": "f2",
+     "attr": "color",
+     "code": 1
+    },
+    {
+     "group": "f2",
+     "attr": "shape",
+     "code": 1
+    },
+    {
+     "group": "f2",
+     "attr": "pos_row",
+     "code": 1
+    },
+    {
+     "group": "f3",
+     "attr": "shape",
+     "code": 2
+    }
+   ],
+   "ruleCodes": {
+    "color": {
+     "code": 1,
+     "group": "f2"
+    },
+    "shape": {
+     "code": 2,
+     "group": "f3"
+    },
+    "pos_tri": {
+     "code": 0,
+     "group": null
+    },
+    "pos_row": {
+     "code": 1,
+     "group": "f2"
+    },
+    "pos_col": {
+     "code": 1,
+     "group": "f1"
+    },
+    "size": {
+     "code": 0,
+     "group": null
+    }
+   },
+   "activeRules": [
+    "shape",
+    "pos_col",
+    "color",
+    "pos_row"
+   ],
+   "params": {
+    "beta": 0.921,
+    "alpha3pl": 1.605,
+    "gamma": 0.25,
+    "alpha2pl": 1.2037499999999999
+   },
+   "vocab": {
+    "colors": [
+     "#0072B2",
+     "#E69F00",
+     "#009E73",
+     "#CC79A7"
+    ],
+    "shapes": [
+     "circle",
+     "square",
+     "triangle",
+     "diamond"
+    ],
+    "sizes": [
+     0.62,
+     0.82,
+     1.0
+    ],
+    "slots": [
+     "left",
+     "right",
+     "bottom"
+    ],
+    "nudge": [
+     [
+      0,
+      0
+     ],
+     [
+      -1,
+      0
+     ],
+     [
+      0,
+      1
+     ]
+    ]
+   },
+   "matrix": [
+    [
+     {
+      "color": 1,
+      "shape": 3,
+      "slot": 0,
+      "nudge": 1,
+      "offset": 2,
+      "size": 1
+     },
+     {
+      "color": 1,
+      "shape": 2,
+      "slot": 0,
+      "nudge": 0,
+      "offset": 0,
+      "size": 2
+     },
+     {
+      "color": 2,
+      "shape": 1,
+      "slot": 1,
+      "nudge": 1,
+      "offset": 0,
+      "size": 0
+     }
+    ],
+    [
+     {
+      "color": 1,
+      "shape": 0,
+      "slot": 0,
+      "nudge": 1,
+      "offset": 0,
+      "size": 1
+     },
+     {
+      "color": 1,
+      "shape": 3,
+      "slot": 0,
+      "nudge": 0,
+      "offset": 1,
+      "size": 2
+     },
+     {
+      "color": 2,
+      "shape": 2,
+      "slot": 1,
+      "nudge": 1,
+      "offset": 1,
+      "size": 0
+     }
+    ],
+    [
+     {
+      "color": 1,
+      "shape": 1,
+      "slot": 0,
+      "nudge": 1,
+      "offset": 1,
+      "size": 1
+     },
+     {
+      "color": 1,
+      "shape": 0,
+      "slot": 0,
+      "nudge": 0,
+      "offset": 2,
+      "size": 2
+     },
+     {
+      "color": 2,
+      "shape": 3,
+      "slot": 1,
+      "nudge": 1,
+      "offset": 2,
+      "size": 0
+     }
+    ],
+    [
+     {
+      "color": 2,
+      "shape": 0,
+      "slot": 0,
+      "nudge": 2,
+      "offset": 2,
+      "size": 1
+     },
+     {
+      "color": 2,
+      "shape": 3,
+      "slot": 0,
+      "nudge": 1,
+      "offset": 0,
+      "size": 2
+     },
+     {
+      "color": 3,
+      "shape": 2,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 0,
+      "size": 0
+     }
+    ],
+    [
+     {
+      "color": 2,
+      "shape": 1,
+      "slot": 0,
+      "nudge": 2,
+      "offset": 0,
+      "size": 1
+     },
+     {
+      "color": 2,
+      "shape": 0,
+      "slot": 0,
+      "nudge": 1,
+      "offset": 1,
+      "size": 2
+     },
+     {
+      "color": 3,
+      "shape": 3,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 1,
+      "size": 0
+     }
+    ],
+    [
+     {
+      "color": 2,
+      "shape": 2,
+      "slot": 0,
+      "nudge": 2,
+      "offset": 1,
+      "size": 1
+     },
+     {
+      "color": 2,
+      "shape": 1,
+      "slot": 0,
+      "nudge": 1,
+      "offset": 2,
+      "size": 2
+     },
+     {
+      "color": 3,
+      "shape": 0,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 2,
+      "size": 0
+     }
+    ],
+    [
+     {
+      "color": 3,
+      "shape": 1,
+      "slot": 0,
+      "nudge": 0,
+      "offset": 2,
+      "size": 1
+     },
+     {
+      "color": 3,
+      "shape": 0,
+      "slot": 0,
+      "nudge": 2,
+      "offset": 0,
+      "size": 2
+     },
+     {
+      "color": 0,
+      "shape": 3,
+      "slot": 1,
+      "nudge": 0,
+      "offset": 0,
+      "size": 0
+     }
+    ],
+    [
+     {
+      "color": 3,
+      "shape": 2,
+      "slot": 0,
+      "nudge": 0,
+      "offset": 0,
+      "size": 1
+     },
+     {
+      "color": 3,
+      "shape": 1,
+      "slot": 0,
+      "nudge": 2,
+      "offset": 1,
+      "size": 2
+     },
+     {
+      "color": 0,
+      "shape": 0,
+      "slot": 1,
+      "nudge": 0,
+      "offset": 1,
+      "size": 0
+     }
+    ],
+    null
+   ],
+   "options": [
+    {
+     "cell": [
+      {
+       "color": 0,
+       "shape": 3,
+       "slot": 0,
+       "nudge": 1,
+       "offset": 2,
+       "size": 1
+      },
+      {
+       "color": 3,
+       "shape": 2,
+       "slot": 0,
+       "nudge": 2,
+       "offset": 2,
+       "size": 2
+      },
+      {
+       "color": 0,
+       "shape": 1,
+       "slot": 1,
+       "nudge": 0,
+       "offset": 2,
+       "size": 0
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 3
+    },
+    {
+     "cell": [
+      {
+       "color": 0,
+       "shape": 0,
+       "slot": 0,
+       "nudge": 1,
+       "offset": 2,
+       "size": 1
+      },
+      {
+       "color": 3,
+       "shape": 2,
+       "slot": 0,
+       "nudge": 2,
+       "offset": 2,
+       "size": 2
+      },
+      {
+       "color": 0,
+       "shape": 1,
+       "slot": 1,
+       "nudge": 0,
+       "offset": 2,
+       "size": 0
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 4
+    },
+    {
+     "cell": [
+      {
+       "color": 0,
+       "shape": 0,
+       "slot": 0,
+       "nudge": 0,
+       "offset": 2,
+       "size": 1
+      },
+      {
+       "color": 3,
+       "shape": 2,
+       "slot": 0,
+       "nudge": 2,
+       "offset": 2,
+       "size": 2
+      },
+      {
+       "color": 0,
+       "shape": 1,
+       "slot": 1,
+       "nudge": 0,
+       "offset": 2,
+       "size": 0
+      }
+     ],
+     "correct": false,
+     "ruleDistance": 3
+    },
+    {
+     "cell": [
+      {
+       "color": 3,
+       "shape": 3,
+       "slot": 0,
+       "nudge": 0,
+       "offset": 1,
+       "size": 1
+      },
+      {
+       "color": 3,
+       "shape": 2,
+       "slot": 0,
+       "nudge": 2,
+       "offset": 2,
+       "size": 2
+      },
+      {
+       "color": 0,
+       "shape": 1,
+       "slot": 1,
+       "nudge": 0,
+       "offset": 2,
+       "size": 0
+      }
+     ],
+     "correct": true,
+     "ruleDistance": 0
+    }
+   ]
+  }
+ ]
+}
