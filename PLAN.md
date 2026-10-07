@@ -75,12 +75,14 @@ Koreksi usia: hanyavalid untuk rentang 11–33, di luar itu → tampilkan "di lu
 |---|---|---|
 | 0 | `scripts/new-webapp.sh` → scaffold Next.js + badge versi (HUKUM §14), `git init`, LICENSE GPL-3.0 + NOTICE, README kerangka | 1 sesi |
 | 1 | Taruh item JSON (60 item dari MaRs-IB, 3 varian) + metadata lisensi + sitasi di `ITEMS-LICENSE.md` | 1-2 sesi |
-| 2 | Skor: IRT 2PL offline (Python, `py-lib/`) → koefisien bake ke JSON → fungsi skor TypeScript + **satu self-check berbasis assert self-check** | 2 sesi |
+| 2 | Skor: IRT 2PL offline (Python, `py-lib/`) → koefisien bake ke JSON → fungsi skor TypeScript + **satu self-check berbasis assert** | 2 sesi |
 | 3 | UI tes: matriks 3x3 SVG, opsi jawaban, timer, adaptif (pakai difficulty MaRs-IB), Bahasa Indonesia | 3-4 sesi |
 | 4 | Laporan: theta, persentil, rentang, grafik butir, reliability check | 2 sesi |
 | 5 | README + CONTRIBUTING + LICENSE/NOTICE utuh, audit atribusi, commit + tag v0.1.0 + push | 1 sesi |
 
 Total MVP ≈ 2-3 minggu kerja nyata. Bukan proyek OpenIQ-jenis.
+
+**Status 2026-10-07 — Fase 2 tidak lagi terblokir.** Parameter IRT, skor dimensionality, dan tiga short form sudah diperoleh dari `ndawlab/mars-irt` (MIT) dan disimpan di `data/item-parameters/`, rinciannya di `ITEM-PARAMETERS.md`. Yang masih kosong hanya gambar stimulus (jpeg). Fase 1 dan 2 bisa jalan tanpa gambar stimulus; Fase 3 (UI) butuh gambar.
 
 ---
 

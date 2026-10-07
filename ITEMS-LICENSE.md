@@ -40,6 +40,21 @@ treat that as a third party whose terms have not been separately inspected here.
   screen, results screen).
 - Keep this file. Do not merge its contents into the code license.
 
+## Item parameters are a separate, permissive source
+
+The psychometrics used to score items are **not** covered by the terms above. They come
+from a separate MIT-licensed analysis of the same item bank:
+
+- `ndawlab/mars-irt`, "An item response theory analysis of the Matrix Reasoning Item Bank
+  (MaRs-IB)", Zorowitz et al. (2023), *Behavior Research Methods*, DOI
+  `10.3758/s13428-023-02067-8`
+- Copyright (c) 2019-2022 Daw Lab, `https://dawlab.princeton.edu/`
+
+The vendored tables live in `data/item-parameters/`, with full details, column
+definitions, and usage limits in `ITEM-PARAMETERS.md`. Reading the item parameters still
+requires obeying the item terms in this file, because the parameters are derived from
+participants' responses to the items.
+
 ## What the authors say this test is not (verbatim)
 
 > "Please note that our task is not an IQ test. It is not intended to be used to
@@ -79,12 +94,15 @@ IQ number (see `PLAN.md` section 4).
 project reports is a percentile *within the reference sample*, not within a general
 population, and the age correction is only defensible inside the 11–33 range.
 
-## Status: item files not yet retrievable (checked 2026-10-07)
+## Status: item stimulus files not yet retrievable (re-checked 2026-10-07)
 
 The `Items` and `Item-level norms` components on the OSF node return an empty file
 listing from both the OSF API (`/v2/nodes/{id}/files/osfstorage/`) and the WaterButler
-endpoint (`files.osf.io`). Only the README PDF downloaded successfully. The Gorilla
-demo host did not resolve from this network.
+endpoint (`files.osf.io`). Only the README PDF downloaded successfully.
+
+A second route was found and does work: the item **psychometrics** are published openly
+under MIT in `ndawlab/mars-irt` and are vendored at `data/item-parameters/`. What remains
+missing is only the **stimulus images**. See `ITEM-PARAMETERS.md`.
 
 Consequence: stimuli are **not** yet included in this repository. Nothing in `src/`
 depends on them. Before Phase 3 (UI) the retrieval route has to be settled, and the

@@ -31,3 +31,13 @@ approaches:
 
 Stimuli are not covered by this project's license. See `ITEMS-LICENSE.md` (added in
 Phase 1) for the terms of the item bank.
+
+## Vendored data
+
+- `data/item-parameters/` — item response theory parameters and dimensionality scores for
+  the MaRs-IB, copied unmodified from `ndawlab/mars-irt` (MIT, "Copyright (c) 2019-2022
+  Daw Lab, https://dawlab.princeton.edu/"). Source: Zorowitz et al. (2023), *Behavior
+  Research Methods*, DOI 10.3758/s13428-023-02067-8. The upstream license text is kept
+  beside the data as `LICENSE-dawlab-mars-irt.txt`. See `ITEM-PARAMETERS.md`.
+- `docs/sources/MaRs_IB_README.pdf` — the MaRs-IB component README from OSF node
+  `g96f4`, kept as provenance for the item terms in `ITEMS-LICENSE.md`.

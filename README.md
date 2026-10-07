@@ -6,7 +6,7 @@ Bahasa Indonesia · Next.js + TypeScript · Lisensi GPL-3.0
 
 ## Apa yang belum ada
 
-Project ini masih sangat awal. Yang sudah ada per v0.1.0 baru kerangka: lisensi, dokumen rencana, dan aturan main. Belum ada soal, belum ada mesin skoring, belum ada antarmuka tes. Lihat [PLAN.md](./PLAN.md) untuk peta jalan lengkap per fase.
+Project ini masih sangat awal. Yang sudah ada per v0.1.0 baru kerangka: lisensi, dokumen rencana, dan aturan main. Belum ada gambar stimulus, belum ada mesin skoring, belum ada antarmuka tes. Parameter psychometrik butir sudah tersedia dan bisa dilihat di [ITEM-PARAMETERS.md](./ITEM-PARAMETERS.md). Lihat [PLAN.md](./PLAN.md) untuk peta jalan lengkap per fase.
 
 ## Apa yang bukan project ini
 
@@ -31,7 +31,7 @@ persentil terhadap sampel acuan
  rentang + standard error
 ```
 
-Tidak ada langkah konversi ke angka IQ. Koreksi usia hanya sah di rentang usiasampel acuan; di luar itu sistem menyatakan di luar jangkauan data, bukan mengarang angka.
+Tidak ada langkah konversi ke angka IQ. Koreksi usia hanya sah di rentang usia sampel acuan; di luar itu sistem menyatakan di luar jangkauan data, bukan mengarang angka.
 
 Prinsip metodologi yang diambil dari `Zburgers/OpenIQ`: no fake precision, no silent timing bonus. Waktu respons dicatat sebagai data, tidak dipakai menambah skor diam-diam.
 
@@ -39,7 +39,7 @@ Prinsip metodologi yang diambil dari `Zburgers/OpenIQ`: no fake precision, no si
 
 Rencana memakai Materials for Adaptive Reasoning Suite — Item Bank (MaRs-IB) dari Chierchia dkk. 2019. Lisensi butir: non-komersial, wajib sitasi. Rinciannya ada di [ITEMS-LICENSE.md](./ITEMS-LICENSE.md).
 
-Status unduhan butir per pemeriksaan terbaru: repositori OSF tidak menyediakan file butir secara publik, baru PDF dokumentasi. Butir stimuli belum bisa dipakai.
+Status unduhan per pemeriksaan terbaru: repositori OSF tidak menyediakan gambar stimulus secara publik, baru PDF dokumentasi. Parameter IRT dan skor dimensionality berhasil diperoleh dari analisis terbuka terpisah dengan lisensi MIT, disimpan di [data/item-parameters](./data/item-parameters). Yang belum ada hanya gambar butirnya.
 
 ## Credit
 
@@ -47,6 +47,7 @@ Repo berikut jadi rujukan **metode dan struktur**, bukan kode yang disalin. Rinc
 
 | Repo | Dipakai untuk |
 |---|---|
+| [ndawlab/mars-irt](https://github.com/ndawlab/mars-irt) | Parameter IRT butir MaRs-IB (MIT), disalin ke `data/item-parameters/` |
 | [ikhlasulov-gb/open-rpm-web](https://github.com/ikhlasulov-gb/open-rpm-web) | Konsep adaptive, pola koreksi usia, reliability check |
 | [Ksound22/iq-measurer](https://github.com/Ksound22/iq-measurer) | Struktur bank soal JSON, layout, timer |
 | [Zburgers/OpenIQ](https://github.com/Zburgers/OpenIQ) | Metodologi IRT, disiplin laporan, prinsip epistemik |
