@@ -39,7 +39,7 @@ Sumber yang legal & terverifikasi:
 
 **MaRs-IB** — Chierchia, Fuhrmann, Knoll, Pi-Sunyer, Sakhardande, Blakemore (2019), *Royal Society Open Science* 6(10):190232. DOI 10.1098/rsos.190232
 - 80 item novel, open-access, tiap item dalam 3 varian bentuk
-- Format: matriks 3x3, 8 dari 9 sel terisi, pilih 1 dari 4 opsi
+- Format: matriks 3x3, 8 dari 9 sel terisi, pilih 1 dari **8 opsi** (README resmi MaRs-IB: satu item = 1 matriks + 8 kandidat solusi = 9 jpeg; key `_T1_`, `_T2_`/`_T3_`/`_T4_`, set distractor `_md_` vs `_pd_`). Catatan: OSF menyebut `_T1_`..`_T4_` tapi menyebut 8 solusi — jumlah opsi per item harus dikonfirmasi dari file stimulus asli sebelum UI dibuat.
 - Relasi yang bisa berubah: warna, ukuran, posisi, bentuk (1 relasi = mudah, 3 relasi = sulit)
 - Data: N = 659 peserta, usia **11–33**; item-level accuracy + response time per age group
 - Lisensi material: **academic & non-commercial use only**, wajib sitasi paper
@@ -76,7 +76,7 @@ Koreksi usia: hanyavalid untuk rentang 11–33, di luar itu → tampilkan "di lu
 | 0 | `scripts/new-webapp.sh` → scaffold Next.js + badge versi (HUKUM §14), `git init`, LICENSE GPL-3.0 + NOTICE, README kerangka | 1 sesi |
 | 1 | Taruh item JSON (60 item dari MaRs-IB, 3 varian) + metadata lisensi + sitasi di `ITEMS-LICENSE.md` | 1-2 sesi |
 | 2 | Skor: IRT 2PL offline (Python, `py-lib/`) → koefisien bake ke JSON → fungsi skor TypeScript + **satu self-check berbasis assert self-check** | 2 sesi |
-| 3 | UI tes: matriks 3x3 SVG, 4 opsi, timer, adaptif (pakai difficulty MaRs-IB), Bahasa Indonesia | 3-4 sesi |
+| 3 | UI tes: matriks 3x3 SVG, opsi jawaban, timer, adaptif (pakai difficulty MaRs-IB), Bahasa Indonesia | 3-4 sesi |
 | 4 | Laporan: theta, persentil, rentang, grafik butir, reliability check | 2 sesi |
 | 5 | README + CONTRIBUTING + LICENSE/NOTICE utuh, audit atribusi, commit + tag v0.1.0 + push | 1 sesi |
 
