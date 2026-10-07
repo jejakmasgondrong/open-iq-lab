@@ -39,27 +39,27 @@
    "ruleCodes": {
     "color": {
      "code": 1,
-     "group": "f1"
+     "alongColumns": true
     },
     "shape": {
      "code": 1,
-     "group": "f1"
+     "alongColumns": false
     },
     "pos_tri": {
      "code": 0,
-     "group": null
+     "alongColumns": true
     },
     "pos_row": {
      "code": 2,
-     "group": "f2"
+     "alongColumns": false
     },
     "pos_col": {
      "code": 1,
-     "group": "f1"
+     "alongColumns": true
     },
     "size": {
      "code": 0,
-     "group": null
+     "alongColumns": false
     }
    },
    "activeRules": [
@@ -97,18 +97,32 @@
      "right",
      "bottom"
     ],
-    "nudge": [
+    "nudgeV": [
      [
       0,
       0
      ],
      [
-      -1,
-      0
+      0,
+      -13
      ],
      [
       0,
-      1
+      13
+     ]
+    ],
+    "nudgeH": [
+     [
+      0,
+      0
+     ],
+     [
+      13,
+      0
+     ],
+     [
+      -13,
+      0
      ]
     ]
    },
@@ -134,7 +148,7 @@
     [
      {
       "color": 0,
-      "shape": 0,
+      "shape": 3,
       "slot": 1,
       "nudge": 2,
       "offset": 1,
@@ -142,43 +156,43 @@
      },
      {
       "color": 2,
+      "shape": 1,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 2,
+      "size": 1
+     }
+    ],
+    [
+     {
+      "color": 1,
+      "shape": 3,
+      "slot": 1,
+      "nudge": 0,
+      "offset": 2,
+      "size": 2
+     },
+     {
+      "color": 3,
+      "shape": 1,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 0,
+      "size": 1
+     }
+    ],
+    [
+     {
+      "color": 3,
+      "shape": 0,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 0,
+      "size": 2
+     },
+     {
+      "color": 1,
       "shape": 2,
-      "slot": 2,
-      "nudge": 2,
-      "offset": 2,
-      "size": 1
-     }
-    ],
-    [
-     {
-      "color": 1,
-      "shape": 1,
-      "slot": 1,
-      "nudge": 0,
-      "offset": 2,
-      "size": 2
-     },
-     {
-      "color": 3,
-      "shape": 3,
-      "slot": 2,
-      "nudge": 0,
-      "offset": 0,
-      "size": 1
-     }
-    ],
-    [
-     {
-      "color": 3,
-      "shape": 3,
-      "slot": 1,
-      "nudge": 2,
-      "offset": 0,
-      "size": 2
-     },
-     {
-      "color": 1,
-      "shape": 1,
       "slot": 2,
       "nudge": 2,
       "offset": 1,
@@ -206,7 +220,7 @@
     [
      {
       "color": 1,
-      "shape": 1,
+      "shape": 0,
       "slot": 1,
       "nudge": 1,
       "offset": 2,
@@ -214,7 +228,7 @@
      },
      {
       "color": 3,
-      "shape": 3,
+      "shape": 2,
       "slot": 2,
       "nudge": 1,
       "offset": 0,
@@ -224,7 +238,7 @@
     [
      {
       "color": 3,
-      "shape": 3,
+      "shape": 1,
       "slot": 1,
       "nudge": 0,
       "offset": 0,
@@ -232,7 +246,7 @@
      },
      {
       "color": 1,
-      "shape": 1,
+      "shape": 3,
       "slot": 2,
       "nudge": 0,
       "offset": 1,
@@ -242,7 +256,7 @@
     [
      {
       "color": 0,
-      "shape": 0,
+      "shape": 1,
       "slot": 1,
       "nudge": 1,
       "offset": 1,
@@ -250,7 +264,7 @@
      },
      {
       "color": 2,
-      "shape": 2,
+      "shape": 3,
       "slot": 2,
       "nudge": 1,
       "offset": 2,
@@ -393,27 +407,27 @@
    "ruleCodes": {
     "color": {
      "code": 1,
-     "group": "f2"
+     "alongColumns": true
     },
     "shape": {
      "code": 2,
-     "group": "f3"
+     "alongColumns": false
     },
     "pos_tri": {
      "code": 0,
-     "group": null
+     "alongColumns": true
     },
     "pos_row": {
      "code": 1,
-     "group": "f2"
+     "alongColumns": false
     },
     "pos_col": {
      "code": 1,
-     "group": "f1"
+     "alongColumns": true
     },
     "size": {
      "code": 0,
-     "group": null
+     "alongColumns": false
     }
    },
    "activeRules": [
@@ -451,18 +465,32 @@
      "right",
      "bottom"
     ],
-    "nudge": [
+    "nudgeV": [
      [
       0,
       0
      ],
      [
-      -1,
-      0
+      0,
+      -13
      ],
      [
       0,
-      1
+      13
+     ]
+    ],
+    "nudgeH": [
+     [
+      0,
+      0
+     ],
+     [
+      13,
+      0
+     ],
+     [
+      -13,
+      0
      ]
     ]
    },
@@ -495,75 +523,75 @@
     ],
     [
      {
-      "color": 2,
+      "color": 3,
       "shape": 1,
       "slot": 2,
       "nudge": 1,
       "offset": 1,
-      "size": 0
-     },
-     {
-      "color": 1,
-      "shape": 0,
-      "slot": 2,
-      "nudge": 2,
-      "offset": 1,
-      "size": 1
-     },
-     {
-      "color": 3,
-      "shape": 2,
-      "slot": 1,
-      "nudge": 1,
-      "offset": 1,
-      "size": 1
-     }
-    ],
-    [
-     {
-      "color": 2,
-      "shape": 2,
-      "slot": 2,
-      "nudge": 1,
-      "offset": 2,
-      "size": 0
-     },
-     {
-      "color": 1,
-      "shape": 1,
-      "slot": 2,
-      "nudge": 2,
-      "offset": 2,
-      "size": 1
-     },
-     {
-      "color": 3,
-      "shape": 3,
-      "slot": 1,
-      "nudge": 1,
-      "offset": 2,
-      "size": 1
-     }
-    ],
-    [
-     {
-      "color": 3,
-      "shape": 1,
-      "slot": 2,
-      "nudge": 2,
-      "offset": 0,
       "size": 0
      },
      {
       "color": 2,
       "shape": 0,
       "slot": 2,
+      "nudge": 2,
+      "offset": 1,
+      "size": 1
+     },
+     {
+      "color": 0,
+      "shape": 2,
+      "slot": 1,
+      "nudge": 1,
+      "offset": 1,
+      "size": 1
+     }
+    ],
+    [
+     {
+      "color": 0,
+      "shape": 2,
+      "slot": 2,
+      "nudge": 1,
+      "offset": 2,
+      "size": 0
+     },
+     {
+      "color": 3,
+      "shape": 1,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 2,
+      "size": 1
+     },
+     {
+      "color": 1,
+      "shape": 3,
+      "slot": 1,
+      "nudge": 1,
+      "offset": 2,
+      "size": 1
+     }
+    ],
+    [
+     {
+      "color": 2,
+      "shape": 1,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 0,
+      "size": 0
+     },
+     {
+      "color": 1,
+      "shape": 0,
+      "slot": 2,
       "nudge": 0,
       "offset": 0,
       "size": 1
      },
      {
-      "color": 0,
+      "color": 3,
       "shape": 2,
       "slot": 1,
       "nudge": 2,
@@ -599,7 +627,7 @@
     ],
     [
      {
-      "color": 3,
+      "color": 0,
       "shape": 3,
       "slot": 2,
       "nudge": 2,
@@ -607,7 +635,7 @@
       "size": 0
      },
      {
-      "color": 2,
+      "color": 3,
       "shape": 2,
       "slot": 2,
       "nudge": 0,
@@ -615,7 +643,7 @@
       "size": 1
      },
      {
-      "color": 0,
+      "color": 1,
       "shape": 0,
       "slot": 1,
       "nudge": 2,
@@ -625,7 +653,7 @@
     ],
     [
      {
-      "color": 0,
+      "color": 2,
       "shape": 2,
       "slot": 2,
       "nudge": 0,
@@ -633,7 +661,7 @@
       "size": 0
      },
      {
-      "color": 3,
+      "color": 1,
       "shape": 1,
       "slot": 2,
       "nudge": 1,
@@ -641,7 +669,7 @@
       "size": 1
      },
      {
-      "color": 1,
+      "color": 3,
       "shape": 3,
       "slot": 1,
       "nudge": 0,
@@ -651,7 +679,7 @@
     ],
     [
      {
-      "color": 0,
+      "color": 3,
       "shape": 3,
       "slot": 2,
       "nudge": 0,
@@ -659,7 +687,7 @@
       "size": 0
      },
      {
-      "color": 3,
+      "color": 2,
       "shape": 2,
       "slot": 2,
       "nudge": 1,
@@ -667,7 +695,7 @@
       "size": 1
      },
      {
-      "color": 1,
+      "color": 0,
       "shape": 0,
       "slot": 1,
       "nudge": 0,
@@ -843,27 +871,27 @@
    "ruleCodes": {
     "color": {
      "code": 2,
-     "group": "f1"
+     "alongColumns": true
     },
     "shape": {
      "code": 1,
-     "group": "f1"
+     "alongColumns": false
     },
     "pos_tri": {
      "code": 0,
-     "group": null
+     "alongColumns": true
     },
     "pos_row": {
      "code": 2,
-     "group": "f1"
+     "alongColumns": false
     },
     "pos_col": {
      "code": 1,
-     "group": "f2"
+     "alongColumns": true
     },
     "size": {
      "code": 0,
-     "group": null
+     "alongColumns": false
     }
    },
    "activeRules": [
@@ -901,18 +929,32 @@
      "right",
      "bottom"
     ],
-    "nudge": [
+    "nudgeV": [
      [
       0,
       0
      ],
      [
-      -1,
-      0
+      0,
+      -13
      ],
      [
       0,
-      1
+      13
+     ]
+    ],
+    "nudgeH": [
+     [
+      0,
+      0
+     ],
+     [
+      13,
+      0
+     ],
+     [
+      -13,
+      0
      ]
     ]
    },
@@ -938,54 +980,54 @@
     [
      {
       "color": 0,
-      "shape": 3,
+      "shape": 2,
       "slot": 2,
       "nudge": 0,
-      "offset": 1,
+      "offset": 2,
       "size": 0
      },
      {
       "color": 1,
-      "shape": 2,
+      "shape": 1,
       "slot": 2,
       "nudge": 0,
-      "offset": 0,
+      "offset": 1,
       "size": 2
      }
     ],
     [
      {
       "color": 1,
-      "shape": 0,
+      "shape": 2,
       "slot": 2,
       "nudge": 1,
-      "offset": 1,
+      "offset": 0,
       "size": 0
      },
      {
       "color": 2,
-      "shape": 3,
+      "shape": 1,
       "slot": 2,
       "nudge": 1,
-      "offset": 0,
+      "offset": 2,
       "size": 2
      }
     ],
     [
      {
       "color": 0,
-      "shape": 2,
+      "shape": 3,
       "slot": 2,
       "nudge": 0,
-      "offset": 2,
+      "offset": 1,
       "size": 0
      },
      {
       "color": 1,
-      "shape": 1,
+      "shape": 2,
       "slot": 2,
       "nudge": 0,
-      "offset": 1,
+      "offset": 0,
       "size": 2
      }
     ],
@@ -1004,6 +1046,42 @@
       "slot": 2,
       "nudge": 1,
       "offset": 1,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 2,
+      "shape": 3,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 0,
+      "size": 0
+     },
+     {
+      "color": 3,
+      "shape": 2,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 2,
+      "size": 2
+     }
+    ],
+    [
+     {
+      "color": 1,
+      "shape": 0,
+      "slot": 2,
+      "nudge": 1,
+      "offset": 1,
+      "size": 0
+     },
+     {
+      "color": 2,
+      "shape": 3,
+      "slot": 2,
+      "nudge": 1,
+      "offset": 0,
       "size": 2
      }
     ],
@@ -1022,42 +1100,6 @@
       "slot": 2,
       "nudge": 2,
       "offset": 1,
-      "size": 2
-     }
-    ],
-    [
-     {
-      "color": 1,
-      "shape": 2,
-      "slot": 2,
-      "nudge": 1,
-      "offset": 0,
-      "size": 0
-     },
-     {
-      "color": 2,
-      "shape": 1,
-      "slot": 2,
-      "nudge": 1,
-      "offset": 2,
-      "size": 2
-     }
-    ],
-    [
-     {
-      "color": 2,
-      "shape": 3,
-      "slot": 2,
-      "nudge": 2,
-      "offset": 0,
-      "size": 0
-     },
-     {
-      "color": 3,
-      "shape": 2,
-      "slot": 2,
-      "nudge": 2,
-      "offset": 2,
       "size": 2
      }
     ],
@@ -1182,27 +1224,27 @@
    "ruleCodes": {
     "color": {
      "code": 2,
-     "group": "f1"
+     "alongColumns": true
     },
     "shape": {
      "code": 2,
-     "group": "f1"
+     "alongColumns": false
     },
     "pos_tri": {
      "code": 2,
-     "group": "f1"
+     "alongColumns": true
     },
     "pos_row": {
      "code": 0,
-     "group": null
+     "alongColumns": false
     },
     "pos_col": {
      "code": 0,
-     "group": null
+     "alongColumns": true
     },
     "size": {
      "code": 0,
-     "group": null
+     "alongColumns": false
     }
    },
    "activeRules": [
@@ -1239,18 +1281,32 @@
      "right",
      "bottom"
     ],
-    "nudge": [
+    "nudgeV": [
      [
       0,
       0
      ],
      [
-      -1,
-      0
+      0,
+      -13
      ],
      [
       0,
-      1
+      13
+     ]
+    ],
+    "nudgeH": [
+     [
+      0,
+      0
+     ],
+     [
+      13,
+      0
+     ],
+     [
+      -13,
+      0
      ]
     ]
    },
@@ -1434,27 +1490,27 @@
    "ruleCodes": {
     "color": {
      "code": 2,
-     "group": "f1"
+     "alongColumns": true
     },
     "shape": {
      "code": 1,
-     "group": "f1"
+     "alongColumns": false
     },
     "pos_tri": {
      "code": 0,
-     "group": null
+     "alongColumns": true
     },
     "pos_row": {
      "code": 0,
-     "group": null
+     "alongColumns": false
     },
     "pos_col": {
      "code": 2,
-     "group": "f2"
+     "alongColumns": true
     },
     "size": {
      "code": 0,
-     "group": null
+     "alongColumns": false
     }
    },
    "activeRules": [
@@ -1491,18 +1547,32 @@
      "right",
      "bottom"
     ],
-    "nudge": [
+    "nudgeV": [
      [
       0,
       0
      ],
      [
-      -1,
-      0
+      0,
+      -13
      ],
      [
       0,
-      1
+      13
+     ]
+    ],
+    "nudgeH": [
+     [
+      0,
+      0
+     ],
+     [
+      13,
+      0
+     ],
+     [
+      -13,
+      0
      ]
     ]
    },
@@ -1536,6 +1606,58 @@
     [
      {
       "color": 2,
+      "shape": 1,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 0,
+      "size": 2
+     },
+     {
+      "color": 3,
+      "shape": 3,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 1,
+      "size": 0
+     },
+     {
+      "color": 2,
+      "shape": 1,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 0,
+      "size": 0
+     }
+    ],
+    [
+     {
+      "color": 3,
+      "shape": 1,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 1,
+      "size": 2
+     },
+     {
+      "color": 0,
+      "shape": 3,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 2,
+      "size": 0
+     },
+     {
+      "color": 3,
+      "shape": 1,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 1,
+      "size": 0
+     }
+    ],
+    [
+     {
+      "color": 2,
       "shape": 2,
       "slot": 1,
       "nudge": 2,
@@ -1562,58 +1684,6 @@
     [
      {
       "color": 3,
-      "shape": 3,
-      "slot": 1,
-      "nudge": 2,
-      "offset": 1,
-      "size": 2
-     },
-     {
-      "color": 0,
-      "shape": 1,
-      "slot": 2,
-      "nudge": 2,
-      "offset": 2,
-      "size": 0
-     },
-     {
-      "color": 3,
-      "shape": 3,
-      "slot": 2,
-      "nudge": 0,
-      "offset": 1,
-      "size": 0
-     }
-    ],
-    [
-     {
-      "color": 2,
-      "shape": 1,
-      "slot": 1,
-      "nudge": 2,
-      "offset": 0,
-      "size": 2
-     },
-     {
-      "color": 3,
-      "shape": 3,
-      "slot": 2,
-      "nudge": 2,
-      "offset": 1,
-      "size": 0
-     },
-     {
-      "color": 2,
-      "shape": 1,
-      "slot": 2,
-      "nudge": 0,
-      "offset": 0,
-      "size": 0
-     }
-    ],
-    [
-     {
-      "color": 3,
       "shape": 2,
       "slot": 1,
       "nudge": 2,
@@ -1631,58 +1701,6 @@
      {
       "color": 3,
       "shape": 2,
-      "slot": 2,
-      "nudge": 0,
-      "offset": 1,
-      "size": 0
-     }
-    ],
-    [
-     {
-      "color": 0,
-      "shape": 3,
-      "slot": 1,
-      "nudge": 2,
-      "offset": 2,
-      "size": 2
-     },
-     {
-      "color": 1,
-      "shape": 1,
-      "slot": 2,
-      "nudge": 2,
-      "offset": 0,
-      "size": 0
-     },
-     {
-      "color": 0,
-      "shape": 3,
-      "slot": 2,
-      "nudge": 0,
-      "offset": 2,
-      "size": 0
-     }
-    ],
-    [
-     {
-      "color": 3,
-      "shape": 1,
-      "slot": 1,
-      "nudge": 2,
-      "offset": 1,
-      "size": 2
-     },
-     {
-      "color": 0,
-      "shape": 3,
-      "slot": 2,
-      "nudge": 2,
-      "offset": 2,
-      "size": 0
-     },
-     {
-      "color": 3,
-      "shape": 1,
       "slot": 2,
       "nudge": 0,
       "offset": 1,
@@ -1709,6 +1727,58 @@
      {
       "color": 0,
       "shape": 2,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 2,
+      "size": 0
+     }
+    ],
+    [
+     {
+      "color": 3,
+      "shape": 3,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 1,
+      "size": 2
+     },
+     {
+      "color": 0,
+      "shape": 1,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 2,
+      "size": 0
+     },
+     {
+      "color": 3,
+      "shape": 3,
+      "slot": 2,
+      "nudge": 0,
+      "offset": 1,
+      "size": 0
+     }
+    ],
+    [
+     {
+      "color": 0,
+      "shape": 3,
+      "slot": 1,
+      "nudge": 2,
+      "offset": 2,
+      "size": 2
+     },
+     {
+      "color": 1,
+      "shape": 1,
+      "slot": 2,
+      "nudge": 2,
+      "offset": 0,
+      "size": 0
+     },
+     {
+      "color": 0,
+      "shape": 3,
       "slot": 2,
       "nudge": 0,
       "offset": 2,
@@ -1883,27 +1953,27 @@
    "ruleCodes": {
     "color": {
      "code": 2,
-     "group": "f1"
+     "alongColumns": true
     },
     "shape": {
      "code": 2,
-     "group": "f1"
+     "alongColumns": false
     },
     "pos_tri": {
      "code": 0,
-     "group": null
+     "alongColumns": true
     },
     "pos_row": {
      "code": 2,
-     "group": "f1"
+     "alongColumns": false
     },
     "pos_col": {
      "code": 1,
-     "group": "f2"
+     "alongColumns": true
     },
     "size": {
      "code": 0,
-     "group": null
+     "alongColumns": false
     }
    },
    "activeRules": [
@@ -1941,18 +2011,32 @@
      "right",
      "bottom"
     ],
-    "nudge": [
+    "nudgeV": [
      [
       0,
       0
      ],
      [
-      -1,
-      0
+      0,
+      -13
      ],
      [
       0,
-      1
+      13
+     ]
+    ],
+    "nudgeH": [
+     [
+      0,
+      0
+     ],
+     [
+      13,
+      0
+     ],
+     [
+      -13,
+      0
      ]
     ]
    },
@@ -1981,7 +2065,7 @@
       "shape": 0,
       "slot": 0,
       "nudge": 1,
-      "offset": 0,
+      "offset": 1,
       "size": 2
      },
      {
@@ -1989,7 +2073,7 @@
       "shape": 2,
       "slot": 1,
       "nudge": 0,
-      "offset": 1,
+      "offset": 2,
       "size": 1
      }
     ],
@@ -1999,7 +2083,7 @@
       "shape": 1,
       "slot": 0,
       "nudge": 2,
-      "offset": 0,
+      "offset": 2,
       "size": 2
      },
      {
@@ -2007,7 +2091,7 @@
       "shape": 3,
       "slot": 1,
       "nudge": 1,
-      "offset": 1,
+      "offset": 0,
       "size": 1
      }
     ],
@@ -2017,7 +2101,7 @@
       "shape": 0,
       "slot": 0,
       "nudge": 1,
-      "offset": 1,
+      "offset": 0,
       "size": 2
      },
      {
@@ -2025,7 +2109,7 @@
       "shape": 2,
       "slot": 1,
       "nudge": 0,
-      "offset": 2,
+      "offset": 1,
       "size": 1
      }
     ],
@@ -2053,7 +2137,7 @@
       "shape": 2,
       "slot": 0,
       "nudge": 0,
-      "offset": 1,
+      "offset": 2,
       "size": 2
      },
      {
@@ -2061,7 +2145,7 @@
       "shape": 0,
       "slot": 1,
       "nudge": 2,
-      "offset": 2,
+      "offset": 0,
       "size": 1
      }
     ],
@@ -2071,7 +2155,7 @@
       "shape": 1,
       "slot": 0,
       "nudge": 2,
-      "offset": 2,
+      "offset": 0,
       "size": 2
      },
      {
@@ -2079,7 +2163,7 @@
       "shape": 3,
       "slot": 1,
       "nudge": 1,
-      "offset": 0,
+      "offset": 1,
       "size": 1
      }
     ],
@@ -2089,7 +2173,7 @@
       "shape": 2,
       "slot": 0,
       "nudge": 0,
-      "offset": 2,
+      "offset": 1,
       "size": 2
      },
      {
@@ -2097,7 +2181,7 @@
       "shape": 0,
       "slot": 1,
       "nudge": 2,
-      "offset": 0,
+      "offset": 2,
       "size": 1
      }
     ],
@@ -2227,27 +2311,27 @@
    "ruleCodes": {
     "color": {
      "code": 2,
-     "group": "f2"
+     "alongColumns": true
     },
     "shape": {
      "code": 1,
-     "group": "f2"
+     "alongColumns": false
     },
     "pos_tri": {
      "code": 0,
-     "group": null
+     "alongColumns": true
     },
     "pos_row": {
      "code": 0,
-     "group": null
+     "alongColumns": false
     },
     "pos_col": {
      "code": 0,
-     "group": null
+     "alongColumns": true
     },
     "size": {
      "code": 0,
-     "group": null
+     "alongColumns": false
     }
    },
    "activeRules": [
@@ -2283,18 +2367,32 @@
      "right",
      "bottom"
     ],
-    "nudge": [
+    "nudgeV": [
      [
       0,
       0
      ],
      [
-      -1,
-      0
+      0,
+      -13
      ],
      [
       0,
-      1
+      13
+     ]
+    ],
+    "nudgeH": [
+     [
+      0,
+      0
+     ],
+     [
+      13,
+      0
+     ],
+     [
+      -13,
+      0
      ]
     ]
    },
@@ -2574,27 +2672,27 @@
    "ruleCodes": {
     "color": {
      "code": 0,
-     "group": null
+     "alongColumns": true
     },
     "shape": {
      "code": 2,
-     "group": "f1"
+     "alongColumns": false
     },
     "pos_tri": {
      "code": 0,
-     "group": null
+     "alongColumns": true
     },
     "pos_row": {
      "code": 2,
-     "group": "f2"
+     "alongColumns": false
     },
     "pos_col": {
      "code": 2,
-     "group": "f2"
+     "alongColumns": true
     },
     "size": {
      "code": 0,
-     "group": null
+     "alongColumns": false
     }
    },
    "activeRules": [
@@ -2631,18 +2729,32 @@
      "right",
      "bottom"
     ],
-    "nudge": [
+    "nudgeV": [
      [
       0,
       0
      ],
      [
-      -1,
-      0
+      0,
+      -13
      ],
      [
       0,
-      1
+      13
+     ]
+    ],
+    "nudgeH": [
+     [
+      0,
+      0
+     ],
+     [
+      13,
+      0
+     ],
+     [
+      -13,
+      0
      ]
     ]
    },
@@ -3013,27 +3125,27 @@
    "ruleCodes": {
     "color": {
      "code": 2,
-     "group": "f1"
+     "alongColumns": true
     },
     "shape": {
      "code": 2,
-     "group": "f1"
+     "alongColumns": false
     },
     "pos_tri": {
      "code": 0,
-     "group": null
+     "alongColumns": true
     },
     "pos_row": {
      "code": 0,
-     "group": null
+     "alongColumns": false
     },
     "pos_col": {
      "code": 0,
-     "group": null
+     "alongColumns": true
     },
     "size": {
      "code": 0,
-     "group": null
+     "alongColumns": false
     }
    },
    "activeRules": [
@@ -3069,18 +3181,32 @@
      "right",
      "bottom"
     ],
-    "nudge": [
+    "nudgeV": [
      [
       0,
       0
      ],
      [
-      -1,
-      0
+      0,
+      -13
      ],
      [
       0,
-      1
+      13
+     ]
+    ],
+    "nudgeH": [
+     [
+      0,
+      0
+     ],
+     [
+      13,
+      0
+     ],
+     [
+      -13,
+      0
      ]
     ]
    },
@@ -3355,27 +3481,27 @@
    "ruleCodes": {
     "color": {
      "code": 0,
-     "group": null
+     "alongColumns": true
     },
     "shape": {
      "code": 2,
-     "group": "f1"
+     "alongColumns": false
     },
     "pos_tri": {
      "code": 0,
-     "group": null
+     "alongColumns": true
     },
     "pos_row": {
      "code": 2,
-     "group": "f2"
+     "alongColumns": false
     },
     "pos_col": {
      "code": 1,
-     "group": "f1"
+     "alongColumns": true
     },
     "size": {
      "code": 0,
-     "group": null
+     "alongColumns": false
     }
    },
    "activeRules": [
@@ -3412,18 +3538,32 @@
      "right",
      "bottom"
     ],
-    "nudge": [
+    "nudgeV": [
      [
       0,
       0
      ],
      [
-      -1,
-      0
+      0,
+      -13
      ],
      [
       0,
-      1
+      13
+     ]
+    ],
+    "nudgeH": [
+     [
+      0,
+      0
+     ],
+     [
+      13,
+      0
+     ],
+     [
+      -13,
+      0
      ]
     ]
    },
@@ -3799,27 +3939,27 @@
    "ruleCodes": {
     "color": {
      "code": 2,
-     "group": "f1"
+     "alongColumns": true
     },
     "shape": {
      "code": 1,
-     "group": "f2"
+     "alongColumns": false
     },
     "pos_tri": {
      "code": 2,
-     "group": "f2"
+     "alongColumns": true
     },
     "pos_row": {
      "code": 0,
-     "group": null
+     "alongColumns": false
     },
     "pos_col": {
      "code": 0,
-     "group": null
+     "alongColumns": true
     },
     "size": {
      "code": 0,
-     "group": null
+     "alongColumns": false
     }
    },
    "activeRules": [
@@ -3856,18 +3996,32 @@
      "right",
      "bottom"
     ],
-    "nudge": [
+    "nudgeV": [
      [
       0,
       0
      ],
      [
-      -1,
-      0
+      0,
+      -13
      ],
      [
       0,
-      1
+      13
+     ]
+    ],
+    "nudgeH": [
+     [
+      0,
+      0
+     ],
+     [
+      13,
+      0
+     ],
+     [
+      -13,
+      0
      ]
     ]
    },
@@ -4152,27 +4306,27 @@
    "ruleCodes": {
     "color": {
      "code": 2,
-     "group": "f1"
+     "alongColumns": true
     },
     "shape": {
      "code": 1,
-     "group": "f1"
+     "alongColumns": false
     },
     "pos_tri": {
      "code": 0,
-     "group": null
+     "alongColumns": true
     },
     "pos_row": {
      "code": 2,
-     "group": "f3"
+     "alongColumns": false
     },
     "pos_col": {
      "code": 1,
-     "group": "f1"
+     "alongColumns": true
     },
     "size": {
      "code": 0,
-     "group": null
+     "alongColumns": false
     }
    },
    "activeRules": [
@@ -4210,18 +4364,32 @@
      "right",
      "bottom"
     ],
-    "nudge": [
+    "nudgeV": [
      [
       0,
       0
      ],
      [
-      -1,
-      0
+      0,
+      -13
      ],
      [
       0,
-      1
+      13
+     ]
+    ],
+    "nudgeH": [
+     [
+      0,
+      0
+     ],
+     [
+      13,
+      0
+     ],
+     [
+      -13,
+      0
      ]
     ]
    },
@@ -4255,7 +4423,7 @@
     [
      {
       "color": 3,
-      "shape": 3,
+      "shape": 2,
       "slot": 2,
       "nudge": 2,
       "offset": 0,
@@ -4263,7 +4431,7 @@
      },
      {
       "color": 2,
-      "shape": 2,
+      "shape": 1,
       "slot": 2,
       "nudge": 1,
       "offset": 0,
@@ -4271,7 +4439,7 @@
      },
      {
       "color": 2,
-      "shape": 2,
+      "shape": 1,
       "slot": 0,
       "nudge": 0,
       "offset": 1,
@@ -4281,7 +4449,7 @@
     [
      {
       "color": 0,
-      "shape": 0,
+      "shape": 2,
       "slot": 2,
       "nudge": 0,
       "offset": 1,
@@ -4289,7 +4457,7 @@
      },
      {
       "color": 3,
-      "shape": 3,
+      "shape": 1,
       "slot": 2,
       "nudge": 2,
       "offset": 1,
@@ -4297,7 +4465,7 @@
      },
      {
       "color": 3,
-      "shape": 3,
+      "shape": 1,
       "slot": 0,
       "nudge": 1,
       "offset": 2,
@@ -4307,7 +4475,7 @@
     [
      {
       "color": 3,
-      "shape": 2,
+      "shape": 3,
       "slot": 2,
       "nudge": 2,
       "offset": 2,
@@ -4315,7 +4483,7 @@
      },
      {
       "color": 2,
-      "shape": 1,
+      "shape": 2,
       "slot": 2,
       "nudge": 1,
       "offset": 2,
@@ -4323,7 +4491,7 @@
      },
      {
       "color": 2,
-      "shape": 1,
+      "shape": 2,
       "slot": 0,
       "nudge": 0,
       "offset": 0,
@@ -4359,7 +4527,7 @@
     [
      {
       "color": 1,
-      "shape": 0,
+      "shape": 3,
       "slot": 2,
       "nudge": 1,
       "offset": 1,
@@ -4367,7 +4535,7 @@
      },
      {
       "color": 0,
-      "shape": 3,
+      "shape": 2,
       "slot": 2,
       "nudge": 0,
       "offset": 1,
@@ -4375,7 +4543,7 @@
      },
      {
       "color": 0,
-      "shape": 3,
+      "shape": 2,
       "slot": 0,
       "nudge": 2,
       "offset": 2,
@@ -4385,7 +4553,7 @@
     [
      {
       "color": 0,
-      "shape": 2,
+      "shape": 0,
       "slot": 2,
       "nudge": 0,
       "offset": 2,
@@ -4393,7 +4561,7 @@
      },
      {
       "color": 3,
-      "shape": 1,
+      "shape": 3,
       "slot": 2,
       "nudge": 2,
       "offset": 2,
@@ -4401,7 +4569,7 @@
      },
      {
       "color": 3,
-      "shape": 1,
+      "shape": 3,
       "slot": 0,
       "nudge": 1,
       "offset": 0,
@@ -4411,7 +4579,7 @@
     [
      {
       "color": 1,
-      "shape": 3,
+      "shape": 0,
       "slot": 2,
       "nudge": 1,
       "offset": 0,
@@ -4419,7 +4587,7 @@
      },
      {
       "color": 0,
-      "shape": 2,
+      "shape": 3,
       "slot": 2,
       "nudge": 0,
       "offset": 0,
@@ -4427,7 +4595,7 @@
      },
      {
       "color": 0,
-      "shape": 2,
+      "shape": 3,
       "slot": 0,
       "nudge": 2,
       "offset": 1,
