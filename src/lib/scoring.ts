@@ -137,6 +137,53 @@ export function score(
   };
 }
 
+export type ItemStat = {
+  itemId: string;
+  beta: number;
+  alpha: number;
+  observedCorrect: number;
+  observedTotal: number;
+  information: number;
+};
+
+/** Item information at a given theta: alpha squared times the Bernoulli variance. */
+function informationAt(theta: number, params: Params): number {
+  const prob = logistic(params.alpha * (theta - params.beta));
+  return params.alpha * params.alpha * prob * (1 - prob);
+}
+
+/** Per-item observed accuracy next to its calibrated difficulty. */
+export function itemStats(items: Item[], responses: Response[], theta: number): ItemStat[] {
+  const byId = new Map(responses.map((response) => [response.itemId, response.correct]));
+  return items.map((item) => {
+    const params = { beta: item.params.beta, alpha: item.params.alpha2pl };
+    const seen = byId.has(item.id);
+    return {
+      itemId: item.id,
+      beta: params.beta,
+      alpha: params.alpha,
+      observedCorrect: seen && byId.get(item.id) ? 1 : 0,
+      observedTotal: seen ? 1 : 0,
+      information: informationAt(theta, params),
+    };
+  });
+}
+
+/** Cronbach's alpha for a dichotomous test. Null when the total never varies. */
+export function cronbachAlpha(items: Item[], responses: Response[]): number | null {
+  const byId = new Map(responses.map((response) => [response.itemId, response.correct]));
+  const hits = items.filter((item) => byId.has(item.id)).map((item): number => (byId.get(item.id) ? 1 : 0));
+  const n = hits.length;
+  if (n < 2) return null;
+  const sum = hits.reduce<number>((acc, hit) => acc + hit, 0);
+  const p = sum / n;
+  const itemVarianceSum = hits.reduce<number>((acc, hit) => acc + hit * (1 - hit), 0);
+  if (p === 0 || p === 1) return null;
+  const totalVariance = n * p * (1 - p);
+  const alpha = (n / (n - 1)) * (1 - itemVarianceSum / totalVariance);
+  return Number.isFinite(alpha) ? alpha : null;
+}
+
 export const REFERENCE_NOTE =
   "Persentil dihitung terhadap 1.501 peserta kalibrasi MaRs-IB (rentang usia 11-33), bukan terhadap norma populasi. Karena itu hasilnya bukan angka IQ.";
 
@@ -193,6 +240,21 @@ export function selfCheck(items: Item[], sortedReference: number[]): void {
     "score must not depend on response order",
   );
   assert(bankIds.size === 12 && all.length === items.length, "bank shape changed");
+
+  // Item statistics must be complete and finite, and reliability must be sane.
+  const stats = itemStats(items, [...forward, { itemId: bank[0].id, correct: false }], half.theta);
+  assert(stats.length === items.length, "one stat row per item");
+  assert(stats.every((stat) => Number.isFinite(stat.information) && stat.information >= 0), "item information must be finite and non-negative");
+  assert(stats[0].observedTotal === 1, "answered items must be marked observed");
+  assert(stats[items.length - 1].observedTotal === 0, "unanswered items must be marked unobserved");
+
+  // A perfectly split half/half pattern makes alpha degenerate (0 when every item
+  // shares the same mean, n/(n-1) when every item is 0 or 1), so only check that
+  // the value is finite and that the undefined cases return null.
+  const alphaMixed = cronbachAlpha(items, forward);
+  assert(alphaMixed !== null && Number.isFinite(alphaMixed), "Cronbach alpha must be finite when the total varies");
+  assert(cronbachAlpha(items, bank.map((item) => ({ itemId: item.id, correct: true }))) === null, "alpha is undefined when everyone is correct");
+  assert(cronbachAlpha(items, []) === null, "alpha is undefined with no responses");
 
   console.log(
     `self-check OK: ${items.length} items | perfect theta ${perfect.theta.toFixed(2)} | mixed ${half.theta.toFixed(2)} | wrong ${wrong.theta.toFixed(2)} | SE(perfect) ${perfect.standardError.toFixed(2)}`,

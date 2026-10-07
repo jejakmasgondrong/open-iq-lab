@@ -6,7 +6,7 @@ import sf2 from "@/data/items-sf2.json";
 import sf3 from "@/data/items-sf3.json";
 import thetaReference from "@/data/theta-reference.json";
 import { mergeBanks, type Item, type ItemBank } from "@/lib/items";
-import { REFERENCE_NOTE, score } from "@/lib/scoring";
+import { REFERENCE_NOTE, cronbachAlpha, itemStats, score, type ItemStat } from "@/lib/scoring";
 import { useState } from "react";
 
 const ITEMS = mergeBanks([sf1, sf2, sf3] as ItemBank[]);
@@ -53,6 +53,15 @@ export default function TestPage() {
       answers.map((answer) => ({ itemId: answer.itemId, correct: answer.correct })),
       REFERENCE,
     );
+    const alpha = cronbachAlpha(
+      ITEMS,
+      answers.map((answer) => ({ itemId: answer.itemId, correct: answer.correct })),
+    );
+    const stats = itemStats(
+      ITEMS,
+      answers.map((answer) => ({ itemId: answer.itemId, correct: answer.correct })),
+      result.theta,
+    );
     return (
       <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-10">
         <h1 className="text-2xl font-semibold">Selesai</h1>
@@ -60,7 +69,7 @@ export default function TestPage() {
           {result.rawCorrect} benar dari {result.rawTotal} butir.
         </p>
 
-        <dl className="mt-6 grid gap-4 sm:grid-cols-2">
+        <dl className="mt-6 grid gap-4 sm:grid-cols-3">
           <div className="rounded-lg border border-white/15 bg-black/20 p-4">
             <dt className="text-sm text-white/60">Theta</dt>
             <dd className="text-2xl font-semibold">{result.theta.toFixed(2)}</dd>
@@ -75,7 +84,38 @@ export default function TestPage() {
               rentang {Math.round(result.percentileLow)} sampai {Math.round(result.percentileHigh)}
             </dd>
           </div>
+          <div className="rounded-lg border border-white/15 bg-black/20 p-4">
+            <dt className="text-sm text-white/60">Reliabilitas</dt>
+            <dd className="text-2xl font-semibold">
+              {alpha === null ? "tidak terdefinisi" : alpha.toFixed(2)}
+            </dd>
+            <dd className="text-sm text-white/60">Cronbach alpha dari {stats.filter((s) => s.observedTotal === 1).length} butir terjawab</dd>
+          </div>
         </dl>
+
+        <details className="mt-8">
+          <summary className="cursor-pointer text-sm text-white/60">
+            Grafik butir: informasi butir di theta Anda
+          </summary>
+          <ItemChart stats={stats} />
+          <p className="mt-2 text-sm text-white/60">
+            Tinggi batang = informasi butir di theta Anda: makin tinggi, makin besar
+            andalnya butir itu membedakan kemampuan dekat nilai Anda. Sumbu mendatar =
+            tingkat kesulitan butir (beta). Sumbu tegak = informasi.
+          </p>
+        </details>
+
+        <details className="mt-4">
+          <summary className="cursor-pointer text-sm text-white/60">Kesulitan butir yang dipakai</summary>
+          <ul className="mt-2 space-y-1 text-sm">
+            {stats.map((stat) => (
+              <li key={stat.itemId}>
+                {stat.itemId}: beta {stat.beta.toFixed(2)}, alpha {stat.alpha.toFixed(2)},
+                informasi {stat.information.toFixed(2)}
+              </li>
+            ))}
+          </ul>
+        </details>
 
         <p className="mt-6 text-sm text-white/60">{REFERENCE_NOTE}</p>
         <p className="mt-2 text-sm text-white/60">
@@ -84,7 +124,7 @@ export default function TestPage() {
           gamma tetap, jadi angka di sini estimator yang sama dengan bentuk yang sedikit disederhanakan.
         </p>
 
-        <button
+                <button
           onClick={restart}
           className="mt-6 rounded border border-white/30 px-4 py-2 hover:bg-white/10"
         >
@@ -174,5 +214,39 @@ export default function TestPage() {
         </ul>
       </details>
     </main>
+  );
+}
+/** Item information curve of the whole bank at one theta, as a simple bar chart. */
+function ItemChart({ stats }: { stats: ItemStat[] }) {
+  const peak = Math.max(...stats.map((stat) => stat.information), 0.001);
+  const minBeta = Math.min(...stats.map((stat) => stat.beta));
+  const maxBeta = Math.max(...stats.map((stat) => stat.beta));
+  const span = maxBeta - minBeta || 1;
+  const sorted = [...stats].sort((a, b) => a.beta - b.beta);
+
+  return (
+    <div className="mt-4">
+      <svg viewBox="0 0 600 160" className="w-full">
+        {sorted.map((stat) => {
+          const x = 40 + ((stat.beta - minBeta) / span) * 540;
+          const h = (stat.information / peak) * 120;
+          return (
+            <g key={stat.itemId}>
+              <rect x={x - 3} y={140 - h} width={6} height={h} className="fill-sky-400/70" />
+              <text x={x} y={154} className="fill-white/40 text-[6px]" textAnchor="middle">
+                {stat.beta.toFixed(1)}
+              </text>
+            </g>
+          );
+        })}
+        <line x1={40} y1={140} x2={580} y2={140} className="stroke-white/25" />
+        <text x={40} y={12} className="fill-white/40 text-[8px]">
+          informasi {peak.toFixed(2)}
+        </text>
+        <text x={540} y={154} className="fill-white/40 text-[8px]">
+          beta {maxBeta.toFixed(1)}
+        </text>
+      </svg>
+    </div>
   );
 }

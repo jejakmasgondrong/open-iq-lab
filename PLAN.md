@@ -84,7 +84,7 @@ Total MVP ≈ 2-3 minggu kerja nyata. Bukan proyek OpenIQ-jenis.
 
 **Status 2026-10-07 — Fase 2 tidak lagi terblokir.** Parameter IRT, skor dimensionality, dan tiga short form sudah diperoleh dari `ndawlab/mars-irt` (MIT) dan disimpan di `data/item-parameters/`, rinciannya di `ITEM-PARAMETERS.md`. Yang masih kosong hanya gambar stimulus (jpeg). Fase 1 dan 2 bisa jalan tanpa gambar stimulus; Fase 3 (UI) butuh gambar.
 
-**Status 2026-10-07 — Fase 0 sampai 4 selesai.** Butir digambar ulang sendiri dengan generator di `py-lib/open_iq_item_gen.py`, mesin skoring ada di `src/lib/scoring.ts` (2PL, MAP dengan prior normal baku, galat baku dari kelengkungan likelihood, persentil terhadap 1.501 peserta kalibrasi), dan runner self-check di `src/lib/scoring-self-check.ts`. Tidak ada konversi ke angka IQ. Yang tersisa dari Fase 4: grafik butir dan reliability check. Belum dikerjakan: urutan tes adaptif dan bank butir di luar penalaran matriks.
+**Status 2026-10-07 — Fase 0 sampai 4 selesai.** Butir digambar ulang sendiri dengan generator di `py-lib/open_iq_item_gen.py`, mesin skoring ada di `src/lib/scoring.ts` (2PL, MAP dengan prior normal baku, galat baku dari kelengkungan likelihood, persentil terhadap 1.501 peserta kalibrasi), dan runner self-check di `src/lib/scoring-self-check.ts`. Tidak ada konversi ke angka IQ. Grafik butir dan reliability check juga sudah ada di `src/lib/scoring.ts` (`itemStats` dan `cronbachAlpha`), jadi Fase 4 lengkap. Belum dikerjakan: urutan tes adaptif dan bank butir di luar penalaran matriks.
 
 ---
 

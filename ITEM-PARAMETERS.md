@@ -106,6 +106,12 @@ Sebagai gantinya, butir digambar ulang dari spesifikasinya sendiri memakai
 Pengecoh dibuat dengan mengubah tepat sejumlah atribut pada sel jawaban, sehingga jarak
 dalam jumlah aturan sama dengan yang dideklarasikan sumber.
 
+## Grafik butir dan reliabilitas
+
+`itemStats` menghitung informasi tiap butir di theta-skor yang dipakai (`alpha^2 x P x (1-P)`), jadi grafik butir menunjukkan butir mana yang paling membedakan kemampuan dekat nilai itu. Beta tetap memakai angka kalibrasi asli, bukan angka butir gambar ulang ini.
+
+`cronbachAlpha` memakai rumus alpha Cronbach untuk butir biner. Nilainya `null` (tidak terdefinisi) kalau semua jawaban benar atau semua salah, karena tidak ada variasi skor total untuk diukur. Pada pola jawaban yang tiap butirnya seragam 0 atau 1, alpha bisa keluar di atas 1, jadi angka itu hanya bermakna kalau jawaban pengguna benar-benar beragam.
+
 ## Cara menghitung skor
 
 Mesin skoring ada di `src/lib/scoring.ts`.
