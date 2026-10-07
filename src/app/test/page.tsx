@@ -4,10 +4,13 @@ import MatrixCell from "@/components/matrix-cell";
 import sf1 from "@/data/items-sf1.json";
 import sf2 from "@/data/items-sf2.json";
 import sf3 from "@/data/items-sf3.json";
+import thetaReference from "@/data/theta-reference.json";
 import { mergeBanks, type Item, type ItemBank } from "@/lib/items";
+import { REFERENCE_NOTE, score } from "@/lib/scoring";
 import { useState } from "react";
 
 const ITEMS = mergeBanks([sf1, sf2, sf3] as ItemBank[]);
+const REFERENCE = [...(thetaReference as number[])].sort((a, b) => a - b);
 
 type Answer = { itemId: string; correct: boolean; ruleDistance: number | null };
 
@@ -45,16 +48,42 @@ export default function TestPage() {
   }
 
   if (done) {
-    const right = answers.filter((a) => a.correct).length;
+    const result = score(
+      ITEMS,
+      answers.map((answer) => ({ itemId: answer.itemId, correct: answer.correct })),
+      REFERENCE,
+    );
     return (
       <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-10">
         <h1 className="text-2xl font-semibold">Selesai</h1>
         <p className="mt-2">
-          {right} benar dari {answers.length} butir.
+          {result.rawCorrect} benar dari {result.rawTotal} butir.
         </p>
-        <p className="mt-1 text-sm text-white/60">
-          Skor theta dan persentil belum dihitung. Itu bagian berikutnya.
+
+        <dl className="mt-6 grid gap-4 sm:grid-cols-2">
+          <div className="rounded-lg border border-white/15 bg-black/20 p-4">
+            <dt className="text-sm text-white/60">Theta</dt>
+            <dd className="text-2xl font-semibold">{result.theta.toFixed(2)}</dd>
+            <dd className="text-sm text-white/60">
+              galat baku {result.standardError.toFixed(2)}
+            </dd>
+          </div>
+          <div className="rounded-lg border border-white/15 bg-black/20 p-4">
+            <dt className="text-sm text-white/60">Persentil</dt>
+            <dd className="text-2xl font-semibold">{Math.round(result.percentile)}</dd>
+            <dd className="text-sm text-white/60">
+              rentang {Math.round(result.percentileLow)} sampai {Math.round(result.percentileHigh)}
+            </dd>
+          </div>
+        </dl>
+
+        <p className="mt-6 text-sm text-white/60">{REFERENCE_NOTE}</p>
+        <p className="mt-2 text-sm text-white/60">
+          Model yang dipakai: 2PL dengan alpha2pl = alpha3pl x (1 - gamma), gamma = 0,25.
+          Alpha dan beta diambil dari analisis kalibrasi MaRs-IB. Versi 3PL aslinya memakai
+          gamma tetap, jadi angka di sini estimator yang sama dengan bentuk yang sedikit disederhanakan.
         </p>
+
         <button
           onClick={restart}
           className="mt-6 rounded border border-white/30 px-4 py-2 hover:bg-white/10"

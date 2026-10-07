@@ -57,6 +57,14 @@ Tiga short form tervalidasi, 12 butir masing-masing, berasal dari publikasi
 Zorowitz et al. (2023). Bentuk-bentuk ini adalah panjang tes siap pakai dari paper,
 sehingga tidak perlu menebak panjang tes sendiri.
 
+## Sampel theta acuan
+
+Berkas `src/data/theta-reference.json` berisi 1.501 nilai theta dari peserta kalibrasi,
+diambil dari ringkasan hasil Stan `stan_results/3pl_m1_summary.tsv` (kolom posterior
+mean tiap `theta[i]`). Nilai sudah diurutkan menaik; rentangnya sekitar -3,78 sampai 2,31
+dengan median 0,107. Berkas ini hanya dipakai untuk menghitung persentil, bukan sebagai
+norma populasi.
+
 ## Batas penggunaan parameter ini
 
 1. Parameter ini **bukan skor**. Nilai `beta` dan `alpha` adalah hasil kalibrasi pada
@@ -87,7 +95,7 @@ Sebagai gantinya, butir digambar ulang dari spesifikasinya sendiri memakai
 - **Struktur aturan dan tingkat kesulitannya sama.** Jumlah aturan per butir, atribut mana
   yang berubah, dan jarak tiap pengecoh diambil apa adanya dari `features.csv` dan
   `distractors.csv`, jadi tingkat kesulitannya sebanding dengan klon aslinya.
-- **Konvensi arah perubahan.** Sumber hanya menulis kode 1 berarti "berubahacross row or
+- **Konvensi arah perubahan.** Sumber hanya menulis kode 1 berarti "berubah across row or
   column" tanpa menyebut yang mana. Di sini kelompok f1 dan f3 berjalan mendatar, f2 dan f4
   vertikal, dan kode 2 berarti berubah pada kedua arah sekaligus. Tanpa pemisahan ini
   semua matriks akan tampil sebagai tiga baris yang identik.
@@ -97,3 +105,21 @@ Sebagai gantinya, butir digambar ulang dari spesifikasinya sendiri memakai
 
 Pengecoh dibuat dengan mengubah tepat sejumlah atribut pada sel jawaban, sehingga jarak
 dalam jumlah aturan sama dengan yang dideklarasikan sumber.
+
+## Cara menghitung skor
+
+Mesin skoring ada di `src/lib/scoring.ts`.
+
+1. peluang benar sebuah butir = `sigmoid(alpha x (theta - beta))`, model 2PL dengan
+   `alpha` = `alpha_2pl` dan `beta` difficulty dari `data/item-parameters/`.
+2. Titik theta dicari dengan MAP: turunan log-likelihood ditambah turunan prior normal
+   baku, lalu dicari akar-nya dengan bising. Prior ini bukan hiasan; tanpa prior, theta
+   ber diverge ke tak hingga saat semua jawaban benar atau semua salah.
+3. Galat baku diambil dari kelengkungan likelihood di sekitar titik itu, dengan turunan
+   kedua numerik.
+4. Persentil dihitung dengan membandingkan theta dengan sampel acuan 1.501 peserta,
+   lalu rentang persentil diambil dari galat baku.
+
+Tidak ada konversi ke angka IQ di mana pun.-alpha dan beta dipakai apa adanya dari
+kalibrasi MaRs-IB; karena butir digambar ulang, angkanya perkiraan kasar dan harus
+disebut begitu di laporan.
