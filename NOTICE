@@ -1,0 +1,33 @@
+# NOTICE
+
+This project is licensed under the GNU General Public License v3.0 (see `LICENSE`).
+
+This file records every third-party work whose code has been incorporated, adapted, or
+derived into this repository, together with its license and the commit the code came
+from. Any file derived from another work carries a comment header pointing back to the
+entry below.
+
+## Third-party code
+
+_As of v0.1.0 no third-party source code has been incorporated yet._
+
+This project was scaffolded from `create-next-app` (MIT, The Verge / Vercel) and uses
+the runtime libraries listed in `package.json` under their own licenses.
+
+## Reference projects (method and structure, not code)
+
+The following repositories were studied while designing this project. No code was
+copied from them. They are listed for attribution and for readers who want to compare
+approaches:
+
+- `ikhlasulov-gb/open-rpm-web` (GPL-3.0) — adaptive testing flow, age-correction pattern,
+  Series A reliability check.
+- `Ksound22/iq-measurer` (MIT) — item-bank data structure and test layout.
+- `Zburgers/OpenIQ` — research methodology only ("no fake precision", "no silent timing
+  bonus", reporting theta with uncertainty).
+- `iq-misc/rpm-iq-exam` — evaluated and rejected; see `PLAN.md`.
+
+## Test items
+
+Stimuli are not covered by this project's license. See `ITEMS-LICENSE.md` (added in
+Phase 1) for the terms of the item bank.
