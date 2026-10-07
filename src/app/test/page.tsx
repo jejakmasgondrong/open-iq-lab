@@ -5,11 +5,11 @@ import sf1 from "@/data/items-sf1.json";
 import sf2 from "@/data/items-sf2.json";
 import sf3 from "@/data/items-sf3.json";
 import thetaReference from "@/data/theta-reference.json";
-import { mergeBanks, type Item, type ItemBank } from "@/lib/items";
+import { byDifficulty, mergeBanks, type Item, type ItemBank } from "@/lib/items";
 import { REFERENCE_NOTE, cronbachAlpha, itemStats, score, type ItemStat } from "@/lib/scoring";
 import { useState } from "react";
 
-const ITEMS = mergeBanks([sf1, sf2, sf3] as ItemBank[]);
+const ITEMS = byDifficulty(mergeBanks([sf1, sf2, sf3] as ItemBank[]));
 const REFERENCE = [...(thetaReference as number[])].sort((a, b) => a - b);
 
 type Answer = { itemId: string; correct: boolean; ruleDistance: number | null };
@@ -124,7 +124,7 @@ export default function TestPage() {
           gamma tetap, jadi angka di sini estimator yang sama dengan bentuk yang sedikit disederhanakan.
         </p>
 
-                <button
+        <button
           onClick={restart}
           className="mt-6 rounded border border-white/30 px-4 py-2 hover:bg-white/10"
         >
@@ -179,7 +179,7 @@ export default function TestPage() {
                 colors={vocab.colors}
                 sizes={vocab.sizes}
                 nudgeV={vocab.nudgeV}
-            nudgeH={vocab.nudgeH}
+                nudgeH={vocab.nudgeH}
                 missingLabel=""
               />
             </button>

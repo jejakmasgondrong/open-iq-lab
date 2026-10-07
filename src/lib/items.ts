@@ -69,3 +69,16 @@ export const ATTR_LABELS: Record<string, string> = {
 export function mergeBanks(banks: ItemBank[]): Item[] {
   return banks.flatMap((bank) => bank.items);
 }
+
+/**
+ * Presentation order: easiest first, by calibrated difficulty (beta), ties by
+ * item id so the order is stable across runs.
+ *
+ * This is a fixed-length test with an ascending ramp, not a computerised
+ * adaptive test. A real CAT would pick the next item by maximum information at
+ * the current theta and stop on a precision rule; that needs more items than the
+ * 36 the three short forms give us, so the report stays fixed-length.
+ */
+export function byDifficulty(items: Item[]): Item[] {
+  return [...items].sort((a, b) => a.params.beta - b.params.beta || a.id.localeCompare(b.id));
+}

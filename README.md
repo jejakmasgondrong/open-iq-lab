@@ -6,7 +6,7 @@ Bahasa Indonesia · Next.js + TypeScript · Lisensi GPL-3.0
 
 ## Apa yang belum ada
 
-Project ini masih sangat awal. Yang sudah ada: lisensi, dokumen rencana, aturan main, parameter psychometrik butir, 36 butir matriks yang digambar ulang dari spesifikasi aturan, mesin skoring theta dan persentil, serta antarmuka tes di `/test`. Yang belum ada: urutan tes adaptif dan bank butir di luar penalaran matriks. Parameter psychometrik butir bisa dilihat di [ITEM-PARAMETERS.md](./ITEM-PARAMETERS.md). Lihat [PLAN.md](./PLAN.md) untuk peta jalan lengkap per fase.
+Project ini masih sangat awal. Yang sudah ada: lisensi, dokumen rencana, aturan main, parameter psychometrik butir, 36 butir matriks yang digambar ulang dari spesifikasi aturan, mesin skoring theta dan persentil, serta antarmuka tes di `/test`. Yang belum ada: bank butir di luar penalaran matriks. Urutan tes sudah escalate dari yang paling mudah (`byDifficulty` di `src/lib/items.ts`), jadi tes ini fixed-length dengan tangga naik, bukan computerised adaptive test. Parameter psychometrik butir bisa dilihat di [ITEM-PARAMETERS.md](./ITEM-PARAMETERS.md). Lihat [PLAN.md](./PLAN.md) untuk peta jalan lengkap per fase.
 
 ## Apa yang bukan project ini
 

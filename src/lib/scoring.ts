@@ -241,6 +241,11 @@ export function selfCheck(items: Item[], sortedReference: number[]): void {
   );
   assert(bankIds.size === 12 && all.length === items.length, "bank shape changed");
 
+  // Presentation order is easiest-first, so difficulty must never fall.
+  for (let i = 1; i < items.length; i++) {
+    assert(items[i].params.beta >= items[i - 1].params.beta, `difficulty must not fall at index ${i}`);
+  }
+
   // Item statistics must be complete and finite, and reliability must be sane.
   const stats = itemStats(items, [...forward, { itemId: bank[0].id, correct: false }], half.theta);
   assert(stats.length === items.length, "one stat row per item");
