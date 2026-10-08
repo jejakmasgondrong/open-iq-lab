@@ -5,27 +5,86 @@ import bank from "@/data/items-bank.json";
 import thetaReference from "@/data/theta-reference.json";
 import { MAX_ITEMS, MIN_ITEMS, TARGET_SE, mergeBanks, nextItem, shouldStop, type ItemBank } from "@/lib/items";
 import { REFERENCE_NOTE, cronbachAlpha, itemStats, score, type ItemStat } from "@/lib/scoring";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 const ITEMS = mergeBanks([bank] as ItemBank[]);
 const REFERENCE = [...(thetaReference as number[])].sort((a, b) => a - b);
 
 type Answer = { itemId: string; correct: boolean; ruleDistance: number | null };
 
+/**
+ * Shuffle driven by a per-session seed, so re-renders keep the same order and
+ * two people do not see the same position for the same item.
+ */
+function shuffled<T>(list: T[], seed: number): T[] {
+  const out = [...list];
+  for (let i = out.length - 1; i > 0; i -= 1) {
+    const noise = Math.sin((i + 1) * 12.9898 + seed * 78.233) * 43758.5453;
+    const j = Math.floor((noise - Math.floor(noise)) * (i + 1));
+    [out[i], out[j]] = [out[j], out[i]];
+  }
+  return out;
+}
+
 export default function TestPage() {
   const [picked, setPicked] = useState<number | null>(null);
   const [answers, setAnswers] = useState<Answer[]>([]);
   const [away, setAway] = useState(0);
+  // Seed is null until the test is started, so nothing random is rendered on the
+  // server and the first paint on the client matches it.
+  const [seed, setSeed] = useState<number | null>(null);
+  const [voided, setVoided] = useState(false);
+  const inAway = useRef(false);
 
-  // ponytail: satu event, satu penghitung. Tab switch, minimize, dan jendela lain
-  // semuanya membuat dokumen tersembunyi, jadi visibilitychange cukup.
+  const options = useMemo(() => {
+    const map = new Map<string, typeof ITEMS[number]["options"]>();
+    if (seed === null) return map;
+    for (const item of ITEMS) map.set(item.id, shuffled(item.options, seed));
+    return map;
+  }, [seed]);
+
+  function markAway() {
+    if (inAway.current) return;
+    inAway.current = true;
+    setAway((n) => n + 1);
+  }
+
+  // One absence, one count. Tab switch and window blur fire together, so a flag
+  // keeps one interruption from being counted twice.
   useEffect(() => {
-    const onHide = () => {
-      if (document.hidden) setAway((n) => n + 1);
-    };
+    const onHide = () => (document.hidden ? markAway() : (inAway.current = false));
+    const onBlur = () => (document.hasFocus() ? (inAway.current = false) : markAway());
     document.addEventListener("visibilitychange", onHide);
-    return () => document.removeEventListener("visibilitychange", onHide);
+    window.addEventListener("blur", onBlur);
+    window.addEventListener("focus", onBlur);
+    return () => {
+      document.removeEventListener("visibilitychange", onHide);
+      window.removeEventListener("blur", onBlur);
+      window.removeEventListener("focus", onBlur);
+    };
   }, []);
+
+  // Browsers refuse to trap someone in fullscreen, so leaving it is allowed and
+  // the run is voided instead. That part is enforceable.
+  useEffect(() => {
+    if (seed === null || voided) return;
+    const onChange = () => {
+      if (!document.fullscreenElement) setVoided(true);
+    };
+    document.addEventListener("fullscreenchange", onChange);
+    return () => document.removeEventListener("fullscreenchange", onChange);
+  }, [seed, voided]);
+
+  async function start() {
+    setSeed(Math.random());
+    setVoided(false);
+    try {
+      await document.documentElement.requestFullscreen();
+    } catch {
+      // Some phones and embeds refuse. Nothing to enforce there, so the tab
+      // counter stays the only guard and the result says so.
+    }
+  }
 
   const responses = answers.map((answer) => ({ itemId: answer.itemId, correct: answer.correct }));
   // Theta and its standard error come from the answers so far. With no answers
@@ -36,8 +95,9 @@ export default function TestPage() {
   const done = shouldStop(answers.length, progress.standardError);
 
   function choose(optionIndex: number) {
-    if (picked !== null || !item) return;
-    const option = item.options[optionIndex];
+    const choices = item && options.get(item.id);
+    if (picked !== null || !choices) return;
+    const option = choices[optionIndex];
     setPicked(optionIndex);
     setAnswers((prev) => [
       ...prev,
@@ -57,6 +117,37 @@ export default function TestPage() {
     setAnswers([]);
     setPicked(null);
     setAway(0);
+    setSeed(null);
+    setVoided(false);
+  }
+
+  if (seed === null) {
+    return (
+      <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-10">
+        <h1 className="text-2xl font-semibold">Uji penalaran matriks</h1>
+        <p className="mt-2">
+          Tes ini adaptif: urutan butir menyesuaikan jawaban Anda, jadi jumlah butir tidak
+          selalu sama. Butir yang dipakai sedikitnya {MIN_ITEMS}, paling banyak {MAX_ITEMS}.
+        </p>
+        <ul className="mt-4 list-disc space-y-1 pl-5 text-sm text-white/70">
+          <li>Tombol di bawah meminta layar penuh. Keluar dari layar penuh selama tes membatalkan hasil.</li>
+          <li>Mematikan atau mengganti tab juga tercatat, dan muncul di laporan hasil.</li>
+          <li>Urutan empat pilihan diacak tiap sesi, dan nomor butir di laporan memakai urutan tes, bukan nomor asli di bank.</li>
+        </ul>
+        <p className="mt-4 text-sm text-white/60">
+          Batas jujurnya: peramban tidak bisa mengintip layar kedua, dan butir di tes ini
+          berasal dari bank publik, jadi orang yang sudah menyiapkan kunci jawaban di luar
+          halaman ini tidak bisa dicegat. Yang bisa ditegakkan adalah Anda tidak meninggalkan
+          tab ini.
+        </p>
+        <button
+          onClick={start}
+          className="mt-6 rounded border border-white/30 px-4 py-2 hover:bg-white/10"
+        >
+          Mulai tes
+        </button>
+      </main>
+    );
   }
 
   if (done || !item) {
@@ -77,12 +168,13 @@ export default function TestPage() {
         </p>
         <p className="mt-2 text-sm text-white/60">
           {away === 0
-            ? "Tidak ada perpindahan tab tercatat selama tes."
-            : `Perpindahan tab tercatat ${away} kali selama tes. Ini catatan, bukan skor; baca sendiri hasilnya.`}
+            ? "Tidak ada perpindahan tab tercatat selama tes, dan tes tidak pernah keluar dari layar penuh."
+            : `Tab ditinggalkan ${away} kali selama tes. Hasil tetap dihitung, tapi angka ini bagian dari catatan integritas, bukan skor.`}
         </p>
         <p className="mt-1 text-sm text-white/60">
-          Catatan jujur: penghitungan ini hanya melihat tab yang sedang disembunyikan peramban.
-          Layar kedua, jendela di monitor lain yang tidak menutup tab ini, dan bantuan orang lain
+          Catatan jujur: penghitungan ini melihat tab yang disembunyikan peramban dan jendela
+          yang kehilangan fokus. Layar kedua, jendela di monitor lain yang tidak menutup tab ini,
+          bantuan orang lain, dan jawaban yang disalin ke alat bantu AI di luar halaman ini
           tidak bisa dideteksi dari sisi peramban.
         </p>
 
@@ -128,9 +220,9 @@ export default function TestPage() {
             {stats
               .filter((stat) => stat.observedTotal === 1)
               .sort((a, b) => a.beta - b.beta)
-              .map((stat) => (
+              .map((stat, i) => (
               <li key={stat.itemId}>
-                {stat.itemId}: beta {stat.beta.toFixed(2)}, alpha {stat.alpha.toFixed(2)},
+                Butir {i + 1}: beta {stat.beta.toFixed(2)}, alpha {stat.alpha.toFixed(2)},
                 informasi {stat.information.toFixed(2)}
               </li>
             ))}
@@ -164,7 +256,30 @@ export default function TestPage() {
     );
   }
 
+  if (voided) {
+    return (
+      <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-10">
+        <h1 className="text-2xl font-semibold text-red-300">Hasil dibatalkan</h1>
+        <p className="mt-2">
+          Tes ini dijalankan di luar layar penuh, jadi hasilnya tidak sah dan tidak ditampilkan.
+          Aturannya ada supaya jawaban mengulang dari halaman lain tidak ikut terhitung.
+        </p>
+        <p className="mt-2 text-sm text-white/60">
+          Peramban tidak mengizinkan memaksa seseorang tetap di layar penuh: yang bisa
+          dilakukan adalah membatalkan hasil, seperti yang terjadi di sini.
+        </p>
+        <button
+          onClick={restart}
+          className="mt-6 rounded border border-white/30 px-4 py-2 hover:bg-white/10"
+        >
+          Ulangi
+        </button>
+      </main>
+    );
+  }
+
   const vocab = item.vocab;
+  const choices = options.get(item.id) ?? item.options;
 
   return (
     <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-10">
@@ -200,7 +315,7 @@ export default function TestPage() {
       </div>
 
       <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
-        {item.options.map((option, i) => {
+        {choices.map((option, i) => {
           const chosen = picked === i;
           const reveal = picked !== null;
           const state = !reveal
@@ -233,9 +348,9 @@ export default function TestPage() {
       {picked !== null && (
         <div className="mt-6 flex items-center gap-4">
           <p className="text-sm">
-            {item.options[picked].correct
+            {choices[picked].correct
               ? "Benar. Aturan pola Anda benar."
-              : `Belum tepat. Jawaban ini melanggar ${item.options[picked].ruleDistance} aturan pola.`}
+              : `Belum tepat. Jawaban ini melanggar ${choices[picked].ruleDistance} aturan pola.`}
           </p>
           <button
             onClick={next}

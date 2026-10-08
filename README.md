@@ -16,6 +16,7 @@ Bagian ini sengaja ada di depan supaya tidak disalahpahami.
 - **Bukan alat diagnosis klinis.** Tidak ada klaim medicolegal, tidak ada nilai ambang, tidak untuk keputusan pendidikan atau rekrutmen.
 - **Bukan turunan Raven, WAIS, atau Stanford-Binet.** Matriks 3x3 memang umum dipakai di banyak tes IQ, tapi butir asli tiap instrument itu milik penerbitnya masing-masing dan tidak dipakai di sini.
 - **Bukan pengganti tes psikolog.** Untuk screening akurat atau diagnosis, bawa ke psikolog berlisensi.
+- **Bukan alat anti-curang.** Yang ditegakkan: tes berjalan di layar penuh dan keluar dari sana membatalkan hasil, perpindahan tab dan kehilangan fokus dihitung, urutan pilihan diacak tiap sesi, dan nomor butir di laporan memakai urutan tes. Yang tidak bisa ditegakkan dari peramban: layar kedua, jendela di monitor lain, orang lain di samping, dan jawaban yang disalin ke alat bantu AI. Karena bank butirnya berasal dari data publik, kunci jawaban bisa disiapkan di luar halaman ini.
 
 ## Prinsip skoring
 
