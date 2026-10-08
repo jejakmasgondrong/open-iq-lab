@@ -6,7 +6,7 @@ Bahasa Indonesia · Next.js + TypeScript · Lisensi GPL-3.0
 
 ## Apa yang belum ada
 
-Project ini masih sangat awal. Yang sudah ada: lisensi, dokumen rencana, aturan main, parameter psychometrik butir, 36 butir matriks yang digambar ulang dari spesifikasi aturan, mesin skoring theta dan persentil, serta antarmuka tes di `/test`. Yang belum ada: bank butir di luar penalaran matriks. Urutan tes sudah escalate dari yang paling mudah (`byDifficulty` di `src/lib/items.ts`), jadi tes ini fixed-length dengan tangga naik, bukan computerised adaptive test. Parameter psychometrik butir bisa dilihat di [ITEM-PARAMETERS.md](./ITEM-PARAMETERS.md). Lihat [PLAN.md](./PLAN.md) untuk peta jalan lengkap per fase.
+Project ini masih sangat awal. Yang sudah ada: lisensi, dokumen rencana, aturan main, parameter psychometrik butir, 108 butir matriks yang digambar ulang dari spesifikasi aturan, mesin skoring theta dan persentil, serta antarmuka tes di `/test`. Yang belum ada: bank butir di luar penalaran matriks. Urutan tes sudah adaptif: setiap butir dipilih karena paling informatif untuk perkiraan kemampuan sejauh ini (`nextItem` di `src/lib/items.ts`), jadi ini computerised adaptive test dengan panjang 12 sampai 40 butir. Parameter psychometrik butir bisa dilihat di [ITEM-PARAMETERS.md](./ITEM-PARAMETERS.md). Lihat [PLAN.md](./PLAN.md) untuk peta jalan lengkap per fase.
 
 ## Apa yang bukan project ini
 
@@ -33,7 +33,7 @@ persentil terhadap sampel acuan
 
 Tidak ada langkah konversi ke angka IQ. Koreksi usia hanya sah di rentang usia sampel acuan; di luar itu sistem menyatakan di luar jangkauan data, bukan mengarang angka.
 
-Implementasinya ada di `src/lib/scoring.ts`: model 2PL, estimasi titik dengan MAP memakai prior normal baku (supaya hasil tetap berhingga saat semua jawaban benar atau semua salah), galat baku dari kelengkungan likelihood, dan persentil dihitung terhadap 1.501 peserta kalibrasi MaRs-IB. Bank butir hanya 36 butir dari tiga short form, jadi rentang theta masih kasar. Jalankan `npx tsx src/lib/scoring-self-check.ts` untuk memeriksa mesin skoring tanpa browser.
+Implementasinya ada di `src/lib/scoring.ts`: model 2PL, estimasi titik dengan MAP memakai prior normal baku (supaya hasil tetap berhingga saat semua jawaban benar atau semua salah), galat baku dari kelengkungan likelihood, dan persentil dihitung terhadap 1.501 peserta kalibrasi MaRs-IB. Bank butir berisi 108 butir dari 54 pola aturan, diambil dari hasil kalibrasi penuh MaRs-IB, jadi rentang theta sudah menutup tingkat kesulitan yang tersedia. Jalankan `npx tsx src/lib/scoring-self-check.ts` untuk memeriksa mesin skoring tanpa browser.
 
 Prinsip metodologi yang diambil dari `Zburgers/OpenIQ`: no fake precision, no silent timing bonus. Waktu respons dicatat sebagai data, tidak dipakai menambah skor diam-diam.
 

@@ -26,6 +26,8 @@ yang diturunkan dari respons peserta.
 | `maRs-ib-features.csv` | Spesifikasi struktural tiap butir per fitur dan aturan | 384 baris data |
 | `maRs-ib-distractors.csv` | Jarak tiap pengecoh dari jawaban benar, dalam jumlah aturan | 128 baris data |
 | `maRs-ib-shortform-sf1.csv` | Short form 1, 12 butir | 12 baris data |
+| `maRs-ib-usable-bank.csv` | Daftar butir yang bisa digambar (3 huruf atau kurang per sel) | 330 baris data |
+| `maRs-ib-bank-2per-template.csv` | Daftar butir yang dipakai bank aplikasi, dua per pola | 108 baris data |
 | `maRs-ib-shortform-sf2.csv` | Short form 2, 12 butir | 12 baris data |
 | `maRs-ib-shortform-sf3.csv` | Short form 3, 12 butir | 12 baris data |
 

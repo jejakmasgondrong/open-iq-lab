@@ -1,18 +1,14 @@
 "use client";
 
 import MatrixCell from "@/components/matrix-cell";
-import sf1 from "@/data/items-sf1.json";
-import sf2 from "@/data/items-sf2.json";
-import sf3 from "@/data/items-sf3.json";
+import bank from "@/data/items-bank.json";
 import thetaReference from "@/data/theta-reference.json";
-import { MAX_PER_TEMPLATE, MIN_ITEMS, TARGET_SE, mergeBanks, nextItem, shouldStop, type ItemBank } from "@/lib/items";
+import { MAX_ITEMS, MIN_ITEMS, TARGET_SE, mergeBanks, nextItem, shouldStop, type ItemBank } from "@/lib/items";
 import { REFERENCE_NOTE, cronbachAlpha, itemStats, score, type ItemStat } from "@/lib/scoring";
 import { useEffect, useState } from "react";
 
-const ITEMS = mergeBanks([sf1, sf2, sf3] as ItemBank[]);
+const ITEMS = mergeBanks([bank] as ItemBank[]);
 const REFERENCE = [...(thetaReference as number[])].sort((a, b) => a - b);
-// How many items the cap actually allows: one per template slot, not the bank size.
-const POOL = new Set(ITEMS.map((item) => item.template)).size * MAX_PER_TEMPLATE;
 
 type Answer = { itemId: string; correct: boolean; ruleDistance: number | null };
 
@@ -37,7 +33,7 @@ export default function TestPage() {
   const progress = score(ITEMS, responses, REFERENCE);
   const answered = answers.map((answer) => answer.itemId);
   const item = nextItem(ITEMS, answered, progress.theta);
-  const done = item === undefined || shouldStop(answers.length, progress.standardError);
+  const done = shouldStop(answers.length, progress.standardError);
 
   function choose(optionIndex: number) {
     if (picked !== null || !item) return;
@@ -67,7 +63,7 @@ export default function TestPage() {
     const result = progress;
     const alpha = cronbachAlpha(ITEMS, responses);
     const stats = itemStats(ITEMS, responses, result.theta);
-    const exhausted = answered.length >= POOL;
+    const lengthLimited = answered.length >= MAX_ITEMS;
     return (
       <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-10">
         <h1 className="text-2xl font-semibold">Selesai</h1>
@@ -75,8 +71,8 @@ export default function TestPage() {
           {result.rawCorrect} benar dari {result.rawTotal} butir.
         </p>
         <p className="mt-1 text-sm text-white/60">
-          {exhausted
-            ? `Semua ${POOL} butir terpakai. Tes adaptif berhenti karena isi soal habis, bukan karena ukurannya sudah cukup.`
+          {lengthLimited
+            ? `Tes berhenti di batas panjang ${MAX_ITEMS} butir, bukan karena ukurannya sudah cukup: galat bakunya masih ${result.standardError.toFixed(2)}, di atas batas ${TARGET_SE}.`
             : `Tes berhenti setelah ${answered.length} butir karena galat bakunya turun ke ${result.standardError.toFixed(2)}, di bawah batas ${TARGET_SE}.`}
         </p>
         <p className="mt-2 text-sm text-white/60">
@@ -149,13 +145,13 @@ export default function TestPage() {
         </p>
         <p className="mt-2 text-sm text-white/60">
           Urutan butir di sini adaptif: setiap butir dipilih karena paling informatif untuk
-          perkiraan kemampuan Anda sejauh ini, lalu tes berhenti saat galat bakunya cukup kecil.
-          Isi bank soal adalah 12 pola, masing-masing dengan beberapa versi bentuk, dan satu pola
-          hanya dipakai {MAX_PER_TEMPLATE} kali supaya pola yang sama tidak dihitung dua kali.
-          Tingkat kesulitan butir mentok di 1,6, jadi pola jawaban yang sangat kuat atau sangat
-          lemah mendorong theta melewati butir paling sulit atau paling mudah, dan setelah itu
-          tidak ada butir lain yang informatif. Jalur seperti itu memakai {POOL} butir dan berakhir
-          dengan galat baku sekitar 0,55, lebih lebar daripada batas {TARGET_SE}.
+          perkiraan kemampuan Anda sejauh ini, lalu tes berhenti saat galat bakunya cukup kecil,
+          atau saat panjangnya mencapai {MAX_ITEMS} butir. Bank soal berisi {ITEMS.length} butir dari
+          54 pola aturan, dua butir per pola supaya satu pola tidak dihitung dua kali, dengan
+          tingkat kesulitan yang membentang dari butir paling mudah sampai paling sulit. Karena itu
+          pola jawaban yang wajar biasanya berhenti di 26 sampai 34 butir dengan galat baku sekitar
+          0,35. Pola jawaban yang ekstrem, semua benar atau semua salah, tidak pernah cukup
+          presisi: tes dihentikan batas panjang dengan galat baku sekitar 0,45 sampai 0,48.
         </p>
 
         <button
@@ -175,7 +171,8 @@ export default function TestPage() {
       <h1 className="text-2xl font-semibold">Uji penalaran matriks</h1>
       <p className="mt-1 text-sm text-white/60">
         Butir {answered.length + 1}. Pilih satu kotak yang melengkapi pola. Urutan butir menyesuaikan
-        jawaban Anda, jadi jumlah butir tidak selalu sama. Minimal {MIN_ITEMS} butir.
+        jawaban Anda, jadi jumlah butir tidak selalu sama. Minimal {MIN_ITEMS} butir, paling banyak{" "}
+        {MAX_ITEMS}.
       </p>
       <p
         className={`mt-2 rounded border px-3 py-2 text-sm ${

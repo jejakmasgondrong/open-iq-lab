@@ -1,4 +1,4 @@
-import { MAX_PER_TEMPLATE, MIN_ITEMS, TARGET_SE, eligibleItems, information, nextItem, shouldStop, type Item } from "./items";
+import { MAX_ITEMS, MIN_ITEMS, TARGET_SE, information, nextItem, shouldStop, type Item } from "./items";
 
 /**
  * IRT scoring for open-iq-lab.
@@ -266,23 +266,24 @@ for (let i = 0; i < picked.length; i += 1) {
     const used = picked.slice(0, i);
     // walk[i].theta is the estimate the selection at step i was made on.
     const theta = walk[i].theta;
-    const best = Math.max(...eligibleItems(items, used).map((item) => information(item, theta)));
+    const left = items.filter((item) => !used.includes(item.id));
+    const best = Math.max(...left.map((item) => information(item, theta)));
     const chosen = information(items.find((item) => item.id === picked[i])!, theta);
     assert(chosen >= best - 1e-12, `item at step ${i} must be the most informative one left`);
   }
   assert(!shouldStop(MIN_ITEMS - 1, 0.01), "the stop rule must not fire before the minimum length");
   assert(!shouldStop(MIN_ITEMS, TARGET_SE + 0.01), "the stop rule must not fire above the precision target");
   assert(shouldStop(MIN_ITEMS, TARGET_SE), "the stop rule must fire at the precision target");
+  assert(shouldStop(MAX_ITEMS, 9), "the length limit must stop the test whatever the precision is");
 
-  // Content balance: no template may be used more than the cap. A third use of
-  // the same rule pattern would count it twice, and the reported precision would
-  // then beat what the bank can physically reach.
+  // Bank shape: at most two items per rule pattern. A third item of the same
+  // pattern would count that pattern twice and the reported precision would beat
+  // what the items can physically support.
   const perTemplate = new Map<number, number>();
   for (const item of items) {
-    if (!picked.includes(item.id)) continue;
     perTemplate.set(item.template, (perTemplate.get(item.template) ?? 0) + 1);
   }
-  assert(Math.max(...perTemplate.values()) <= MAX_PER_TEMPLATE, `no template may be used more than ${MAX_PER_TEMPLATE} times`);
+  assert(Math.max(...perTemplate.values()) <= 2, "no rule pattern may have more than two items");
 
   console.log(
     `self-check OK: ${items.length} items | perfect theta ${perfect.theta.toFixed(2)} | mixed ${half.theta.toFixed(2)} | wrong ${wrong.theta.toFixed(2)} | SE(perfect) ${perfect.standardError.toFixed(2)} | adaptive stops at ${picked.length}`,

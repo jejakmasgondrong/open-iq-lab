@@ -86,6 +86,8 @@ Total MVP ≈ 2-3 minggu kerja nyata. Bukan proyek OpenIQ-jenis.
 
 **Status 2026-10-07 — Fase 0 sampai 4 selesai.** Butir digambar ulang sendiri dengan generator di `py-lib/open_iq_item_gen.py`, mesin skoring ada di `src/lib/scoring.ts` (2PL, MAP dengan prior normal baku, galat baku dari kelengkungan likelihood, persentil terhadap 1.501 peserta kalibrasi), dan runner self-check di `src/lib/scoring-self-check.ts`. Tidak ada konversi ke angka IQ. Grafik butir dan reliability check juga sudah ada di `src/lib/scoring.ts` (`itemStats` dan `cronbachAlpha`), jadi Fase 4 lengkap. Belum dikerjakan: bank butir di luar penalaran matriks. Urutan tes sudah escalate dari yang paling mudah lewat `byDifficulty` di `src/lib/items.ts`, jadi Fase 3 sudah ditutup untuk bagian adaptif: tes ini fixed-length dengan tangga naik, bukan computerised adaptive test — CAT asli butuh butir jauh lebih banyak dari 36 butir yang tersedia.
 
+**Status 2026-10-08 — Fase 5 (tes adaptif) selesai.** Bank butir diperluas dari 36 butir (12 pola x 3 versi bentuk) menjadi 108 butir dari 54 pola aturan, semua diambil dari tabel parameter hasil kalibrasi MaRs-IB yang sudah ada di `data/item-parameters/`. Versi 4 huruf per sel tidak dipakai karena sel hanya punya tiga slot gambar, jadi huruf keempat akan menimpa huruf pertama. Butir yang tidak punya tiga pengecoh berbeda juga dilewati, karena memaksa pengecoh kembar membuat jarak aturan jadi bohong. `nextItem` memilih butir paling informatif, `shouldStop` berhenti di galat baku 0,35 atau di batas panjang 40 butir. Bank 108 butir membuat batas bawah galat baku turun ke 0,23, jadi pola jawaban yang wajar sekarang benar-benar berhenti karena cukup presisi, bukan karena bank habis.
+
 ---
 
 ## 6. Anti-"asal tempel" — ini yang Gondrong takuti
