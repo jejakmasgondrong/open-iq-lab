@@ -7,7 +7,7 @@ import sf3 from "@/data/items-sf3.json";
 import thetaReference from "@/data/theta-reference.json";
 import { byDifficulty, mergeBanks, type Item, type ItemBank } from "@/lib/items";
 import { REFERENCE_NOTE, cronbachAlpha, itemStats, score, type ItemStat } from "@/lib/scoring";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const ITEMS = byDifficulty(mergeBanks([sf1, sf2, sf3] as ItemBank[]));
 const REFERENCE = [...(thetaReference as number[])].sort((a, b) => a - b);
@@ -18,6 +18,17 @@ export default function TestPage() {
   const [step, setStep] = useState(0);
   const [picked, setPicked] = useState<number | null>(null);
   const [answers, setAnswers] = useState<Answer[]>([]);
+  const [away, setAway] = useState(0);
+
+  // ponytail: satu event, satu penghitung. Tabswitch, minimize, dan jendela lain
+  // semuanya membuat dokumen tersembunyi, jadi visibilitychange cukup.
+  useEffect(() => {
+    const onHide = () => {
+      if (document.hidden) setAway((n) => n + 1);
+    };
+    document.addEventListener("visibilitychange", onHide);
+    return () => document.removeEventListener("visibilitychange", onHide);
+  }, []);
 
   const item: Item | undefined = ITEMS[step];
   const done = step >= ITEMS.length;
@@ -44,6 +55,7 @@ export default function TestPage() {
   function restart() {
     setAnswers([]);
     setPicked(null);
+    setAway(0);
     setStep(0);
   }
 
@@ -67,6 +79,16 @@ export default function TestPage() {
         <h1 className="text-2xl font-semibold">Selesai</h1>
         <p className="mt-2">
           {result.rawCorrect} benar dari {result.rawTotal} butir.
+        </p>
+        <p className="mt-2 text-sm text-white/60">
+          {away === 0
+            ? "Tidak ada perpindahan tab tercatat selama tes."
+            : `Perpindahan tab tercatat ${away} kali selama tes. Ini catatan, bukan skor; baca sendiri hasilnya.`}
+        </p>
+        <p className="mt-1 text-sm text-white/60">
+          Catatan jujur: penghitungan ini hanya melihat tab yang sedang disembunyikan peramban.
+          Layar kedua, jendela di monitor lain yang tidak menutup tab ini, dan bantuan orang lain
+          tidak bisa dideteksi dari sisi peramban.
         </p>
 
         <dl className="mt-6 grid gap-4 sm:grid-cols-3">
@@ -141,6 +163,17 @@ export default function TestPage() {
       <h1 className="text-2xl font-semibold">Uji penalaran matriks</h1>
       <p className="mt-1 text-sm text-white/60">
         Butir {step + 1} dari {ITEMS.length}. Pilih satu kotak yang melengkapi pola.
+      </p>
+      <p
+        className={`mt-2 rounded border px-3 py-2 text-sm ${
+          away === 0
+            ? "border-white/15 text-white/60"
+            : "border-amber-400/60 bg-amber-400/10 text-amber-200"
+        }`}
+      >
+        {away === 0
+          ? "Jangan tinggalkan tab ini selama tes. Setiap perpindahan tab tercatat dan muncul di laporan hasil."
+          : `Peringatan: tab ini ditinggalkan ${away} kali. Jumlah ini ikut dilaporkan di hasil akhir.`}
       </p>
 
       <div className="mt-6 grid grid-cols-3 gap-2 rounded-lg bg-black/20 p-2">
