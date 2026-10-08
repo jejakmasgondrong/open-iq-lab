@@ -1,4 +1,4 @@
-import type { Item } from "./items";
+import { MIN_ITEMS, TARGET_SE, information, nextItem, shouldStop, type Item } from "./items";
 
 /**
  * IRT scoring for open-iq-lab.
@@ -146,12 +146,6 @@ export type ItemStat = {
   information: number;
 };
 
-/** Item information at a given theta: alpha squared times the Bernoulli variance. */
-function informationAt(theta: number, params: Params): number {
-  const prob = logistic(params.alpha * (theta - params.beta));
-  return params.alpha * params.alpha * prob * (1 - prob);
-}
-
 /** Per-item observed accuracy next to its calibrated difficulty. */
 export function itemStats(items: Item[], responses: Response[], theta: number): ItemStat[] {
   const byId = new Map(responses.map((response) => [response.itemId, response.correct]));
@@ -164,7 +158,7 @@ export function itemStats(items: Item[], responses: Response[], theta: number): 
       alpha: params.alpha,
       observedCorrect: seen && byId.get(item.id) ? 1 : 0,
       observedTotal: seen ? 1 : 0,
-      information: informationAt(theta, params),
+      information: information(item, theta),
     };
   });
 }
@@ -261,9 +255,42 @@ export function selfCheck(items: Item[], sortedReference: number[]): void {
   assert(cronbachAlpha(items, bank.map((item) => ({ itemId: item.id, correct: true }))) === null, "alpha is undefined when everyone is correct");
   assert(cronbachAlpha(items, []) === null, "alpha is undefined with no responses");
 
+  // Adaptive selection: never repeat an item, always pick the most informative
+  // one left at the theta from the answers so far, and stop on the rule.
+  const walk = simulateAdaptive(items, sortedReference, (index) => index % 2 === 0);
+  const picked = walk.map((entry) => entry.itemId);
+  assert(new Set(picked).size === picked.length, "adaptive selection must never repeat an item");
+  assert(picked.length >= MIN_ITEMS, "the stop rule must not fire before the minimum length");
+  assert(simulateAdaptive(items, sortedReference, (index) => index % 2 === 0).map((entry) => entry.itemId).join() === picked.join(), "adaptive order must be reproducible");
+for (let i = 0; i < picked.length; i += 1) {
+    const used = picked.slice(0, i);
+    // walk[i].theta is the estimate the selection at step i was made on.
+    const theta = walk[i].theta;
+    const best = Math.max(...items.filter((item) => !used.includes(item.id)).map((item) => information(item, theta)));
+    const chosen = information(items.find((item) => item.id === picked[i])!, theta);
+    assert(chosen >= best - 1e-12, `item at step ${i} must be the most informative one left`);
+  }
+  assert(!shouldStop(MIN_ITEMS - 1, 0.01), "the stop rule must not fire before the minimum length");
+  assert(!shouldStop(MIN_ITEMS, TARGET_SE + 0.01), "the stop rule must not fire above the precision target");
+  assert(shouldStop(MIN_ITEMS, TARGET_SE), "the stop rule must fire at the precision target");
+
   console.log(
-    `self-check OK: ${items.length} items | perfect theta ${perfect.theta.toFixed(2)} | mixed ${half.theta.toFixed(2)} | wrong ${wrong.theta.toFixed(2)} | SE(perfect) ${perfect.standardError.toFixed(2)}`,
+    `self-check OK: ${items.length} items | perfect theta ${perfect.theta.toFixed(2)} | mixed ${half.theta.toFixed(2)} | wrong ${wrong.theta.toFixed(2)} | SE(perfect) ${perfect.standardError.toFixed(2)} | adaptive stops at ${picked.length}`,
   );
+}
+
+/** Walk the adaptive rule the way the test page does, stopping on the real rule. */
+function simulateAdaptive(items: Item[], sortedReference: number[], isCorrect: (index: number) => boolean): { itemId: string; theta: number }[] {
+  const walked: { itemId: string; theta: number }[] = [];
+  for (;;) {
+    const responses = walked.map((entry, index) => ({ itemId: entry.itemId, correct: isCorrect(index) }));
+    const { theta, standardError } = score(items, responses, sortedReference);
+    const next = nextItem(items, walked.map((entry) => entry.itemId), theta);
+    if (!next) break;
+    walked.push({ itemId: next.id, theta });
+    if (shouldStop(walked.length, standardError)) break;
+  }
+  return walked;
 }
 
 function assert(condition: boolean, message: string): void {

@@ -5,17 +5,16 @@ import sf1 from "@/data/items-sf1.json";
 import sf2 from "@/data/items-sf2.json";
 import sf3 from "@/data/items-sf3.json";
 import thetaReference from "@/data/theta-reference.json";
-import { byDifficulty, mergeBanks, type Item, type ItemBank } from "@/lib/items";
+import { MIN_ITEMS, TARGET_SE, mergeBanks, nextItem, shouldStop, type ItemBank } from "@/lib/items";
 import { REFERENCE_NOTE, cronbachAlpha, itemStats, score, type ItemStat } from "@/lib/scoring";
 import { useEffect, useState } from "react";
 
-const ITEMS = byDifficulty(mergeBanks([sf1, sf2, sf3] as ItemBank[]));
+const ITEMS = mergeBanks([sf1, sf2, sf3] as ItemBank[]);
 const REFERENCE = [...(thetaReference as number[])].sort((a, b) => a - b);
 
 type Answer = { itemId: string; correct: boolean; ruleDistance: number | null };
 
 export default function TestPage() {
-  const [step, setStep] = useState(0);
   const [picked, setPicked] = useState<number | null>(null);
   const [answers, setAnswers] = useState<Answer[]>([]);
   const [away, setAway] = useState(0);
@@ -30,8 +29,13 @@ export default function TestPage() {
     return () => document.removeEventListener("visibilitychange", onHide);
   }, []);
 
-  const item: Item | undefined = ITEMS[step];
-  const done = step >= ITEMS.length;
+  const responses = answers.map((answer) => ({ itemId: answer.itemId, correct: answer.correct }));
+  // Theta and its standard error come from the answers so far. With no answers
+  // yet the score returns theta 0, which is the neutral starting point.
+  const progress = score(ITEMS, responses, REFERENCE);
+  const answered = answers.map((answer) => answer.itemId);
+  const item = nextItem(ITEMS, answered, progress.theta);
+  const done = item === undefined || shouldStop(answers.length, progress.standardError);
 
   function choose(optionIndex: number) {
     if (picked !== null || !item) return;
@@ -49,36 +53,29 @@ export default function TestPage() {
 
   function next() {
     setPicked(null);
-    setStep((prev) => prev + 1);
   }
 
   function restart() {
     setAnswers([]);
     setPicked(null);
     setAway(0);
-    setStep(0);
   }
 
-  if (done) {
-    const result = score(
-      ITEMS,
-      answers.map((answer) => ({ itemId: answer.itemId, correct: answer.correct })),
-      REFERENCE,
-    );
-    const alpha = cronbachAlpha(
-      ITEMS,
-      answers.map((answer) => ({ itemId: answer.itemId, correct: answer.correct })),
-    );
-    const stats = itemStats(
-      ITEMS,
-      answers.map((answer) => ({ itemId: answer.itemId, correct: answer.correct })),
-      result.theta,
-    );
+  if (done || !item) {
+    const result = progress;
+    const alpha = cronbachAlpha(ITEMS, responses);
+    const stats = itemStats(ITEMS, responses, result.theta);
+    const exhausted = answered.length >= ITEMS.length;
     return (
       <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-10">
         <h1 className="text-2xl font-semibold">Selesai</h1>
         <p className="mt-2">
           {result.rawCorrect} benar dari {result.rawTotal} butir.
+        </p>
+        <p className="mt-1 text-sm text-white/60">
+          {exhausted
+            ? `Semua ${ITEMS.length} butir terpakai. Tes adaptif berhenti karena bank soal habis, bukan karena ukurannya sudah cukup.`
+            : `Tes berhenti setelah ${answered.length} butir karena galat bakunya turun ke ${result.standardError.toFixed(2)}, di bawah batas ${TARGET_SE}.`}
         </p>
         <p className="mt-2 text-sm text-white/60">
           {away === 0
@@ -119,7 +116,7 @@ export default function TestPage() {
           <summary className="cursor-pointer text-sm text-white/60">
             Grafik butir: informasi butir di theta Anda
           </summary>
-          <ItemChart stats={stats} />
+          <ItemChart stats={stats.filter((stat) => stat.observedTotal === 1)} />
           <p className="mt-2 text-sm text-white/60">
             Tinggi batang = informasi butir di theta Anda: makin tinggi, makin besar
             andalnya butir itu membedakan kemampuan dekat nilai Anda. Sumbu mendatar =
@@ -130,7 +127,10 @@ export default function TestPage() {
         <details className="mt-4">
           <summary className="cursor-pointer text-sm text-white/60">Kesulitan butir yang dipakai</summary>
           <ul className="mt-2 space-y-1 text-sm">
-            {stats.map((stat) => (
+            {stats
+              .filter((stat) => stat.observedTotal === 1)
+              .sort((a, b) => a.beta - b.beta)
+              .map((stat) => (
               <li key={stat.itemId}>
                 {stat.itemId}: beta {stat.beta.toFixed(2)}, alpha {stat.alpha.toFixed(2)},
                 informasi {stat.information.toFixed(2)}
@@ -144,6 +144,15 @@ export default function TestPage() {
           Model yang dipakai: 2PL dengan alpha2pl = alpha3pl x (1 - gamma), gamma = 0,25.
           Alpha dan beta diambil dari analisis kalibrasi MaRs-IB. Versi 3PL aslinya memakai
           gamma tetap, jadi angka di sini estimator yang sama dengan bentuk yang sedikit disederhanakan.
+        </p>
+        <p className="mt-2 text-sm text-white/60">
+          Urutan butir di sini adaptif: setiap butir dipilih karena paling informatif untuk
+          perkiraan kemampuan Anda sejauh ini, lalu tes berhenti saat galat bakunya cukup kecil.
+          Batasnya ada di bank soal, bukan di aturan berhenti. Tingkat kesulitan butir hanya
+          mentok di 1,6, jadi pola jawaban yang sangat kuat atau sangat lemah mendorong theta
+          melewati butir paling sulit atau paling mudah, dan setelah itu tidak ada butir lain
+          yang informatif. Jalur seperti itu memakai seluruh {ITEMS.length} butir dan berakhir
+          dengan galat baku sekitar 0,5, lebih lebar daripada batas {TARGET_SE}.
         </p>
 
         <button
@@ -162,7 +171,8 @@ export default function TestPage() {
     <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-10">
       <h1 className="text-2xl font-semibold">Uji penalaran matriks</h1>
       <p className="mt-1 text-sm text-white/60">
-        Butir {step + 1} dari {ITEMS.length}. Pilih satu kotak yang melengkapi pola.
+        Butir {answered.length + 1}. Pilih satu kotak yang melengkapi pola. Urutan butir menyesuaikan
+        jawaban Anda, jadi jumlah butir tidak selalu sama. Minimal {MIN_ITEMS} butir.
       </p>
       <p
         className={`mt-2 rounded border px-3 py-2 text-sm ${
