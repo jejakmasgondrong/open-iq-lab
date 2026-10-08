@@ -8,6 +8,20 @@ const SLOT_POS: [number, number][] = [
 
 const SHAPE_NAMES = ["circle", "square", "triangle", "diamond"] as const;
 
+// Radius terbesar tiap bentuk dalam satuan viewBox. Diamond paling lebar (1.2),
+// dipakai sebagai batas untuk semua bentuk supaya tidak ada yang keluar kotak.
+const SHAPE_SPAN: Record<(typeof SHAPE_NAMES)[number], number> = {
+  circle: 1,
+  square: 1,
+  triangle: 1.15,
+  diamond: 1.2,
+};
+
+function clamp(value: number, span: number) {
+  const limit = 99 - span;
+  return Math.min(Math.max(value, span), limit);
+}
+
 type GlyphProps = {
   shape: number;
   color: string;
@@ -87,14 +101,16 @@ export default function MatrixCell({
         const base = SLOT_POS[element.slot % SLOT_POS.length];
         const [dy, dx] = nudgeV[element.nudge % nudgeV.length];
         const [hx, hy] = nudgeH[element.offset % nudgeH.length];
+        const r = 14 * sizes[element.size % sizes.length];
+        const span = r * SHAPE_SPAN[SHAPE_NAMES[element.shape]];
         return (
           <Glyph
             key={i}
             shape={element.shape}
             color={colors[element.color % colors.length]}
-            x={base[0] + dx + hx}
-            y={base[1] + dy + hy}
-            r={14 * sizes[element.size % sizes.length]}
+            x={clamp(base[0] + dx + hx, span)}
+            y={clamp(base[1] + dy + hy, span)}
+            r={r}
           />
         );
       })}
