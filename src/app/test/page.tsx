@@ -5,12 +5,14 @@ import sf1 from "@/data/items-sf1.json";
 import sf2 from "@/data/items-sf2.json";
 import sf3 from "@/data/items-sf3.json";
 import thetaReference from "@/data/theta-reference.json";
-import { MIN_ITEMS, TARGET_SE, mergeBanks, nextItem, shouldStop, type ItemBank } from "@/lib/items";
+import { MAX_PER_TEMPLATE, MIN_ITEMS, TARGET_SE, mergeBanks, nextItem, shouldStop, type ItemBank } from "@/lib/items";
 import { REFERENCE_NOTE, cronbachAlpha, itemStats, score, type ItemStat } from "@/lib/scoring";
 import { useEffect, useState } from "react";
 
 const ITEMS = mergeBanks([sf1, sf2, sf3] as ItemBank[]);
 const REFERENCE = [...(thetaReference as number[])].sort((a, b) => a - b);
+// How many items the cap actually allows: one per template slot, not the bank size.
+const POOL = new Set(ITEMS.map((item) => item.template)).size * MAX_PER_TEMPLATE;
 
 type Answer = { itemId: string; correct: boolean; ruleDistance: number | null };
 
@@ -19,7 +21,7 @@ export default function TestPage() {
   const [answers, setAnswers] = useState<Answer[]>([]);
   const [away, setAway] = useState(0);
 
-  // ponytail: satu event, satu penghitung. Tabswitch, minimize, dan jendela lain
+  // ponytail: satu event, satu penghitung. Tab switch, minimize, dan jendela lain
   // semuanya membuat dokumen tersembunyi, jadi visibilitychange cukup.
   useEffect(() => {
     const onHide = () => {
@@ -65,7 +67,7 @@ export default function TestPage() {
     const result = progress;
     const alpha = cronbachAlpha(ITEMS, responses);
     const stats = itemStats(ITEMS, responses, result.theta);
-    const exhausted = answered.length >= ITEMS.length;
+    const exhausted = answered.length >= POOL;
     return (
       <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-10">
         <h1 className="text-2xl font-semibold">Selesai</h1>
@@ -74,7 +76,7 @@ export default function TestPage() {
         </p>
         <p className="mt-1 text-sm text-white/60">
           {exhausted
-            ? `Semua ${ITEMS.length} butir terpakai. Tes adaptif berhenti karena bank soal habis, bukan karena ukurannya sudah cukup.`
+            ? `Semua ${POOL} butir terpakai. Tes adaptif berhenti karena isi soal habis, bukan karena ukurannya sudah cukup.`
             : `Tes berhenti setelah ${answered.length} butir karena galat bakunya turun ke ${result.standardError.toFixed(2)}, di bawah batas ${TARGET_SE}.`}
         </p>
         <p className="mt-2 text-sm text-white/60">
@@ -148,11 +150,12 @@ export default function TestPage() {
         <p className="mt-2 text-sm text-white/60">
           Urutan butir di sini adaptif: setiap butir dipilih karena paling informatif untuk
           perkiraan kemampuan Anda sejauh ini, lalu tes berhenti saat galat bakunya cukup kecil.
-          Batasnya ada di bank soal, bukan di aturan berhenti. Tingkat kesulitan butir hanya
-          mentok di 1,6, jadi pola jawaban yang sangat kuat atau sangat lemah mendorong theta
-          melewati butir paling sulit atau paling mudah, dan setelah itu tidak ada butir lain
-          yang informatif. Jalur seperti itu memakai seluruh {ITEMS.length} butir dan berakhir
-          dengan galat baku sekitar 0,5, lebih lebar daripada batas {TARGET_SE}.
+          Isi bank soal adalah 12 pola, masing-masing dengan beberapa versi bentuk, dan satu pola
+          hanya dipakai {MAX_PER_TEMPLATE} kali supaya pola yang sama tidak dihitung dua kali.
+          Tingkat kesulitan butir mentok di 1,6, jadi pola jawaban yang sangat kuat atau sangat
+          lemah mendorong theta melewati butir paling sulit atau paling mudah, dan setelah itu
+          tidak ada butir lain yang informatif. Jalur seperti itu memakai {POOL} butir dan berakhir
+          dengan galat baku sekitar 0,55, lebih lebar daripada batas {TARGET_SE}.
         </p>
 
         <button

@@ -1,4 +1,4 @@
-import { MIN_ITEMS, TARGET_SE, information, nextItem, shouldStop, type Item } from "./items";
+import { MAX_PER_TEMPLATE, MIN_ITEMS, TARGET_SE, eligibleItems, information, nextItem, shouldStop, type Item } from "./items";
 
 /**
  * IRT scoring for open-iq-lab.
@@ -266,7 +266,7 @@ for (let i = 0; i < picked.length; i += 1) {
     const used = picked.slice(0, i);
     // walk[i].theta is the estimate the selection at step i was made on.
     const theta = walk[i].theta;
-    const best = Math.max(...items.filter((item) => !used.includes(item.id)).map((item) => information(item, theta)));
+    const best = Math.max(...eligibleItems(items, used).map((item) => information(item, theta)));
     const chosen = information(items.find((item) => item.id === picked[i])!, theta);
     assert(chosen >= best - 1e-12, `item at step ${i} must be the most informative one left`);
   }
@@ -274,13 +274,22 @@ for (let i = 0; i < picked.length; i += 1) {
   assert(!shouldStop(MIN_ITEMS, TARGET_SE + 0.01), "the stop rule must not fire above the precision target");
   assert(shouldStop(MIN_ITEMS, TARGET_SE), "the stop rule must fire at the precision target");
 
+  // Content balance: no template may be used more than the cap. A third use of
+  // the same rule pattern would count it twice, and the reported precision would
+  // then beat what the bank can physically reach.
+  const perTemplate = new Map<number, number>();
+  for (const item of items) {
+    if (!picked.includes(item.id)) continue;
+    perTemplate.set(item.template, (perTemplate.get(item.template) ?? 0) + 1);
+  }
+  assert(Math.max(...perTemplate.values()) <= MAX_PER_TEMPLATE, `no template may be used more than ${MAX_PER_TEMPLATE} times`);
+
   console.log(
     `self-check OK: ${items.length} items | perfect theta ${perfect.theta.toFixed(2)} | mixed ${half.theta.toFixed(2)} | wrong ${wrong.theta.toFixed(2)} | SE(perfect) ${perfect.standardError.toFixed(2)} | adaptive stops at ${picked.length}`,
   );
 }
 
-/** Walk the adaptive rule the way the test page does, stopping on the real rule. */
-function simulateAdaptive(items: Item[], sortedReference: number[], isCorrect: (index: number) => boolean): { itemId: string; theta: number }[] {
+/** Walk the adaptive rule the way the test page does, stopping on the real rule. */function simulateAdaptive(items: Item[], sortedReference: number[], isCorrect: (index: number) => boolean): { itemId: string; theta: number }[] {
   const walked: { itemId: string; theta: number }[] = [];
   for (;;) {
     const responses = walked.map((entry, index) => ({ itemId: entry.itemId, correct: isCorrect(index) }));
